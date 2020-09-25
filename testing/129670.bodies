@@ -1,0 +1,11 @@
+class Waiting_State
+!!!134534.cpp!!!	start(inout stm : Exiting004) : void
+  {
+    stm._set_currentState(stm._exiting004_state._s1_state);
+#ifdef VERBOSE_STATE_MACHINE
+    std::cout << "DEBUG : current state is now .Exiting004.S1" << std::endl;
+#endif
+    stm._exiting004_state._s1_state.create(stm);
+  }
+!!!134662.cpp!!!	_upper(inout stm : Exiting004) : Exiting004::AnyState
+  return &stm._exiting004_state;

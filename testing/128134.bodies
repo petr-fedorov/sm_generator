@@ -1,0 +1,10 @@
+class AnyState
+!!!129670.cpp!!!	sig(inout stm : CompoundTransitionExample) : void
+  AnyState * st = _upper(stm);
+
+  if (st != 0)
+    st->sig(stm);
+#ifdef VERBOSE_STATE_MACHINE
+  else
+    std::cout << "DEBUG : transition sig not expected" << std::endl;
+#endif

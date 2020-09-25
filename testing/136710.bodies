@@ -1,0 +1,10 @@
+class Exiting001_State
+!!!145286.cpp!!!	create(inout stm : Exiting001) : void
+  {
+    stm._set_currentState(stm._exiting001_state._wating_state);
+#ifdef VERBOSE_STATE_MACHINE
+    std::cout << "DEBUG : current state is now .Exiting001.Wating" << std::endl;
+#endif
+  }
+!!!145926.cpp!!!	_upper(inout stm : Exiting001) : Exiting001::AnyState
+  return 0;

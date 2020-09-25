@@ -1,0 +1,72 @@
+format 223
+
+statecanvas 128006 state_ref 128134 // S
+  
+  xyzwh 42.1 97.6 2000 1029 377
+end
+statecanvas 128134 state_ref 128262 // S1
+  
+  xyzwh 59.4 227.8 2005 385 175
+end
+statecanvas 128262 state_ref 128390 // T1
+  
+  xyzwh 593.5 171.5 2005 445 279
+end
+statecanvas 128390 state_ref 128518 // S11
+  
+  xyzwh 75.1 315.9 2010 195 77
+end
+statecanvas 128518 state_ref 128646 // T11
+  
+  xyzwh 637.9 249 2010 381 179
+end
+statecanvas 128646 state_ref 128774 // T111
+  
+  xyzwh 771.9 321.6 2015 227 83
+end
+pseudostatecanvas 128774 pseudostate_ref 128006 // exit_point exit
+   xyz 434.5 329.4 3005 label_xy 434 348
+end
+pseudostatecanvas 128902 pseudostate_ref 128134 // entry_point entry
+   xyz 630.1 331.6 3005 label_xy 626 351
+end
+pseudostatecanvas 129670 pseudostate_ref 128262 // initial 
+   xyz 530.1 21 2000
+end
+pseudostatecanvas 129926 pseudostate_ref 128390 // initial 
+   xyz 232.9 147.4 2005
+end
+pseudostatecanvas 130182 pseudostate_ref 128518 // initial 
+   xyz 262.6 283.4 2010
+end
+transitioncanvas 129030 transition_ref 128006 // <transition>
+  
+  from ref 128390 z 3006 label "sig / stm.log(\"t1\");" xyz 303.5 333.5 3000 to ref 128774
+  write_horizontally default show_definition default drawing_language default
+end
+transitioncanvas 129414 transition_ref 128134 // <transition>
+  
+  from ref 128774 z 3006 label "/ stm.log(\"t2\");" xyz 502 329 3000 to ref 128902
+  write_horizontally default show_definition default drawing_language default
+end
+transitioncanvas 129542 transition_ref 128262 // <transition>
+  
+  from ref 128902 z 3006 label "/ stm.log(\"t3\");" xyz 671 336 3000 to ref 128646
+  write_horizontally default show_definition default drawing_language default
+end
+transitioncanvas 129798 transition_ref 128390 // <transition>
+  
+  from ref 129670 z 2001 to ref 128006
+  write_horizontally default show_definition default drawing_language default
+end
+transitioncanvas 130054 transition_ref 128518 // <transition>
+  
+  from ref 129926 z 2006 to ref 128134
+  write_horizontally default show_definition default drawing_language default
+end
+transitioncanvas 130310 transition_ref 128646 // <transition>
+  
+  from ref 130182 z 2011 to ref 128390
+  write_horizontally default show_definition default drawing_language default
+end
+end

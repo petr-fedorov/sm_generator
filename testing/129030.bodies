@@ -1,0 +1,10 @@
+class T111_State
+!!!130822.cpp!!!	create(inout stm : CompoundTransitionExample) : void
+	_doentry(stm);
+!!!130950.cpp!!!	_doentry(inout stm : CompoundTransitionExample) : void
+#ifdef VERBOSE_STATE_MACHINE
+  std::cout << "DEBUG : execute entry behavior of .CompoundTransitionExample.S.T1.T11.T111" << std::endl;
+#endif
+stm.log("eT111");
+!!!131078.cpp!!!	_upper(inout stm : CompoundTransitionExample) : CompoundTransitionExample::AnyState
+  return &stm._compoundtransitionexample_state._s_state._t1_state._t11_state;

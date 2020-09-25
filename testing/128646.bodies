@@ -1,0 +1,20 @@
+class S11_State
+!!!129798.cpp!!!	sig(inout stm : CompoundTransitionExample) : void
+  {
+    stm._compoundtransitionexample_state._s_state._s1_state._s11_state._doexit(stm);
+#ifdef VERBOSE_STATE_MACHINE
+    std::cout << "DEBUG : execute activity of transition <transition>" << std::endl;
+#endif
+stm.log("t1");    stm._set_currentState(stm._compoundtransitionexample_state._s_state._s1_state);
+#ifdef VERBOSE_STATE_MACHINE
+    std::cout << "DEBUG : current state is now .CompoundTransitionExample.S.S1" << std::endl;
+#endif
+    stm._compoundtransitionexample_state._s_state._s1_state._exit1(stm);
+  }
+!!!129926.cpp!!!	_doexit(inout stm : CompoundTransitionExample) : void
+#ifdef VERBOSE_STATE_MACHINE
+  std::cout << "DEBUG : execute exit behavior of .CompoundTransitionExample.S.S1.S11" << std::endl;
+#endif
+stm.log("xS11");
+!!!130054.cpp!!!	_upper(inout stm : CompoundTransitionExample) : CompoundTransitionExample::AnyState
+  return &stm._compoundtransitionexample_state._s_state._s1_state;

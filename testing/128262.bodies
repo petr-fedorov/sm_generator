@@ -1,0 +1,11 @@
+class CompoundTransitionExample_State
+!!!131846.cpp!!!	_upper(inout stm : CompoundTransitionExample) : CompoundTransitionExample::AnyState
+  return 0;
+!!!132742.cpp!!!	create(inout stm : CompoundTransitionExample) : void
+  {
+    stm._set_currentState(stm._compoundtransitionexample_state._s_state);
+#ifdef VERBOSE_STATE_MACHINE
+    std::cout << "DEBUG : current state is now .CompoundTransitionExample.S" << std::endl;
+#endif
+    stm._compoundtransitionexample_state._s_state.create(stm);
+  }

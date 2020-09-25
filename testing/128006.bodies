@@ -1,0 +1,24 @@
+class CompoundTransitionExample
+!!!129286.cpp!!!	CompoundTransitionExample()
+  _current_state = 0;
+!!!129542.cpp!!!	sig() : bool
+  if (_current_state != 0) {
+#ifdef VERBOSE_STATE_MACHINE
+    std::cout << "DEBUG : fire trigger sig" << std::endl;
+#endif
+    _current_state->sig(*this);
+  }
+  return (_current_state != 0);
+!!!130566.cpp!!!	create() : bool
+if (_current_state == 0)
+  (_current_state = &(*this)._compoundtransitionexample_state)->create(*this);
+return (_current_state != 0);
+!!!131974.cpp!!!	doActivity() : void
+  _current_state->_do(*this);
+!!!132102.cpp!!!	_set_currentState(inout st : CompoundTransitionExample::AnyState) : void
+  _current_state = &st;
+!!!132230.cpp!!!	_final() : void
+  _current_state = 0;
+#ifdef VERBOSE_STATE_MACHINE
+    std::cout << "DEBUG : final state reached" << std::endl;
+#endif

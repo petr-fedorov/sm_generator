@@ -1,0 +1,8 @@
+class Tracer
+!!!132870.cpp!!!	log(in s : string) : void
+if (tracer_.str().empty())
+  tracer_ << s;
+else
+  tracer_ << "::" << s;
+!!!132998.cpp!!!	trace() : string
+return tracer_.str();

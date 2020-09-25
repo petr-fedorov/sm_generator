@@ -1,0 +1,32 @@
+class Exiting001
+!!!144262.cpp!!!	Exiting001()
+  _current_state = 0;
+!!!144518.cpp!!!	start() : bool
+  if (_current_state != 0) {
+#ifdef VERBOSE_STATE_MACHINE
+    std::cout << "DEBUG : fire trigger start" << std::endl;
+#endif
+    _current_state->start(*this);
+  }
+  return (_current_state != 0);
+!!!145030.cpp!!!	create() : bool
+if (_current_state == 0)
+  (_current_state = &(*this)._exiting001_state)->create(*this);
+return (_current_state != 0);
+!!!146054.cpp!!!	doActivity() : void
+  _current_state->_do(*this);
+!!!146182.cpp!!!	_set_currentState(inout st : Exiting001::AnyState) : void
+  _current_state = &st;
+!!!146310.cpp!!!	_final() : void
+  _current_state = 0;
+#ifdef VERBOSE_STATE_MACHINE
+    std::cout << "DEBUG : final state reached" << std::endl;
+#endif
+!!!146566.cpp!!!	Continue() : bool
+  if (_current_state != 0) {
+#ifdef VERBOSE_STATE_MACHINE
+    std::cout << "DEBUG : fire trigger Continue" << std::endl;
+#endif
+    _current_state->Continue(*this);
+  }
+  return (_current_state != 0);

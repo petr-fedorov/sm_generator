@@ -1,0 +1,24 @@
+class Entering005
+!!!167686.cpp!!!	Entering005()
+  _current_state = 0;
+!!!167942.cpp!!!	create() : bool
+if (_current_state == 0)
+  (_current_state = &(*this)._entering005_state)->create(*this);
+return (_current_state != 0);
+!!!170246.cpp!!!	doActivity() : void
+  _current_state->_do(*this);
+!!!170374.cpp!!!	_set_currentState(inout st : Entering005::AnyState) : void
+  _current_state = &st;
+!!!170502.cpp!!!	_final() : void
+  _current_state = 0;
+#ifdef VERBOSE_STATE_MACHINE
+    std::cout << "DEBUG : final state reached" << std::endl;
+#endif
+!!!170886.cpp!!!	Start() : bool
+  if (_current_state != 0) {
+#ifdef VERBOSE_STATE_MACHINE
+    std::cout << "DEBUG : fire trigger Start" << std::endl;
+#endif
+    _current_state->Start(*this);
+  }
+  return (_current_state != 0);

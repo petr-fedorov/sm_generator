@@ -1,0 +1,16 @@
+class waiting_State
+!!!168710.cpp!!!	_upper(inout stm : Entering005) : Entering005::AnyState
+  return &stm._entering005_state;
+!!!171142.cpp!!!	Start(inout stm : Entering005) : void
+  {
+#ifdef VERBOSE_STATE_MACHINE
+    std::cout << "DEBUG : execute activity of transition T2" << std::endl;
+#endif
+stm.log("T2(effect)");    stm._entering005_state._s1_state._doentry(stm);
+    stm._entering005_state._s1_state._s11_state._doentry(stm);
+    stm._set_currentState(stm._entering005_state._s1_state._s11_state._s111_state);
+#ifdef VERBOSE_STATE_MACHINE
+    std::cout << "DEBUG : current state is now .Entering005.S1.S1.1.S1.1.1" << std::endl;
+#endif
+    stm._entering005_state._s1_state._s11_state._s111_state.create(stm);
+  }

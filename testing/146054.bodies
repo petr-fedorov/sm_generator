@@ -1,0 +1,10 @@
+class Entering004_State
+!!!164486.cpp!!!	create(inout stm : Entering004) : void
+  {
+    stm._set_currentState(stm._entering004_state._waiting_state);
+#ifdef VERBOSE_STATE_MACHINE
+    std::cout << "DEBUG : current state is now .Entering004.waiting" << std::endl;
+#endif
+  }
+!!!166150.cpp!!!	_upper(inout stm : Entering004) : Entering004::AnyState
+  return 0;

@@ -1,0 +1,60 @@
+format 223
+
+pseudostatecanvas 128006 pseudostate_ref 143622 // initial 
+   xyz 45 116 2000
+end
+statecanvas 128134 state_ref 144390 // waiting
+  
+  xyzwh 26 236 2000 61 41
+end
+statecanvas 128390 state_ref 144518 // S1
+  
+  xyzwh 332 60 2000 489 393
+end
+statecanvas 128518 state_ref 144646 // S1.1
+  
+  xyzwh 389 132 2005 385 245
+end
+statecanvas 128646 state_ref 144774 // S1.1.1
+  
+  xyzwh 433 214 2010 215 77
+end
+pseudostatecanvas 128774 pseudostate_ref 143750 // initial 
+   xyz 735 240 2010
+end
+pseudostatecanvas 129030 pseudostate_ref 143878 // final 
+   xyz 527 340 2010
+end
+pseudostatecanvas 129286 pseudostate_ref 144006 // initial 
+   xyz 574 419 2005
+end
+note 129798 "Note, that S1 state does not have transition for a completion event. Thus after completion of S1.1 the machine remains in S1 state and S1's completion event remains unprocessed (see PSSM)"
+  xyzwh 47 327 2000 257 123
+transitioncanvas 128262 transition_ref 144390 // T1
+  
+  from ref 128006 z 2001 to ref 128134
+  write_horizontally default show_definition default drawing_language default
+end
+transitioncanvas 128902 transition_ref 144518 // T1.1.1
+  
+  from ref 128774 z 2011 to ref 128646
+  write_horizontally default show_definition default drawing_language default
+end
+transitioncanvas 129158 transition_ref 144646 // T1.1.2
+  
+  from ref 128646 z 2011 to ref 129030
+  write_horizontally default show_definition default drawing_language default
+end
+transitioncanvas 129414 transition_ref 144774 // T1.1
+  
+  from ref 129286 z 2006 to ref 128518
+  write_horizontally default show_definition default drawing_language default
+end
+transitioncanvas 129670 transition_ref 145030 // T2
+  
+  from ref 128134 z 2011 label "Start / stm.log(\"T2(effect)\");" xyz 187 244 3000 to ref 128646
+  write_horizontally default show_definition default drawing_language default
+end
+line 129926 -_-_
+  from ref 129798 z 2001 to ref 128390
+end

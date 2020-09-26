@@ -1,0 +1,64 @@
+format 223
+
+pseudostatecanvas 128006 pseudostate_ref 142598 // initial 
+   xyz 332 16 2000
+end
+statecanvas 128134 state_ref 143238 // Waiting
+  
+  xyzwh 312 97 2000 63 41
+end
+statecanvas 128390 state_ref 143366 // S1
+  
+  xyzwh 74 188 2000 571 313
+end
+pseudostatecanvas 128518 pseudostate_ref 142726 // initial 
+   xyz 95 346 2005
+end
+statecanvas 128646 state_ref 143494 // S1.1
+  
+  xyzwh 199 267 2005 327 191
+end
+statecanvas 128774 state_ref 143622 // S1.1.1
+  
+  xyzwh 292 340 2010 201 77
+end
+pseudostatecanvas 128902 pseudostate_ref 142854 // final 
+   xyz 790 367 2000
+end
+pseudostatecanvas 129286 pseudostate_ref 142982 // initial 
+   xyz 225 366 2010
+end
+pseudostatecanvas 129670 pseudostate_ref 143110 // exit_point exit
+   xyz 633 371 3005 label_xy 633 390
+end
+transitioncanvas 128262 transition_ref 142982 // T1
+  
+  from ref 128006 z 2001 to ref 128134
+  write_horizontally default show_definition default drawing_language default
+end
+transitioncanvas 129158 transition_ref 143238 // T1.1
+  
+  from ref 128518 z 2006 to ref 128646
+  write_horizontally default show_definition default drawing_language default
+end
+transitioncanvas 129414 transition_ref 143366 // T1.1.1
+  
+  from ref 129286 z 2011 to ref 128774
+  write_horizontally default show_definition default drawing_language default
+end
+transitioncanvas 129542 transition_ref 143494 // T2
+  
+  from ref 128134 z 2001 label "Start" xyz 332 153 2001 to ref 128390
+  write_horizontally default show_definition default drawing_language default
+end
+transitioncanvas 129798 transition_ref 143622 // T1.2
+  
+  from ref 128774 z 3006 label "/ stm.log(\"T1.2(effect)\");" xyz 493 369 3006 to ref 129670
+  write_horizontally default show_definition default drawing_language default
+end
+transitioncanvas 130054 transition_ref 143750 // T3
+  
+  from ref 129670 z 3006 label "/ stm.log(\"T3(effect)\");" xyz 662 370 3006 to ref 128902
+  write_horizontally default show_definition default drawing_language default
+end
+end

@@ -1,0 +1,17 @@
+class S1_State
+!!!169734.cpp!!!	create(inout stm : Entering005) : void
+  _doentry(stm);
+  {
+    stm._set_currentState(stm._entering005_state._s1_state._s11_state);
+#ifdef VERBOSE_STATE_MACHINE
+    std::cout << "DEBUG : current state is now .Entering005.S1.S1.1" << std::endl;
+#endif
+    stm._entering005_state._s1_state._s11_state.create(stm);
+  }
+!!!169862.cpp!!!	_doentry(inout stm : Entering005) : void
+#ifdef VERBOSE_STATE_MACHINE
+  std::cout << "DEBUG : execute entry behavior of .Entering005.S1" << std::endl;
+#endif
+stm.log("S1(entry)");
+!!!169990.cpp!!!	_upper(inout stm : Entering005) : Entering005::AnyState
+  return &stm._entering005_state;

@@ -36,7 +36,7 @@ transitioncanvas 128774 transition_ref 128902 // T1.1
 end
 transitioncanvas 129030 transition_ref 129030 // T1.2
   
-  from ref 128518 z 3006 label "/ stm.log(\"T1.2(effect)\");" xyz 392 368.5 3006 to ref 128902
+  from ref 128518 z 3006 label "/ stm.log(\"T1.2(effect)\");" xyz 392 368 3006 to ref 128902
   write_horizontally default show_definition default drawing_language default
 end
 transitioncanvas 129286 transition_ref 129158 // <transition>

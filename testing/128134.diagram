@@ -6,15 +6,35 @@ classcanvas 128006 class_ref 129158 // Tracer
 end
 classcanvas 128134 class_ref 128006 // CompoundTransitionExample
   classdiagramsettings member_max_width 0 end
-  xyz 68 211 2000
+  xyz 43 225 2000
 end
 classcanvas 128646 class_ref 129286 // Exiting004
   classdiagramsettings member_max_width 0 end
-  xyz 349 215 2000
+  xyz 313 282 2000
 end
 classcanvas 128902 class_ref 136454 // Exiting001
   classdiagramsettings member_max_width 0 end
-  xyz 268 215 2000
+  xyz 250 234 2000
+end
+classcanvas 129414 class_ref 144902 // Exit001
+  classdiagramsettings member_max_width 0 end
+  xyz 199 281 2000
+end
+classcanvas 129670 class_ref 145798 // Entering004
+  classdiagramsettings member_max_width 0 end
+  xyz 351 232 2006
+end
+classcanvas 129926 class_ref 146566 // Entering005
+  classdiagramsettings member_max_width 0 end
+  xyz 454 259 2000
+end
+classcanvas 130822 class_ref 148230 // Entering009
+  classdiagramsettings member_max_width 0 end
+  xyz 553 223 2000
+end
+classcanvas 131078 class_ref 148998 // Event018
+  classdiagramsettings member_max_width 0 end
+  xyz 571 166 2005
 end
 relationcanvas 128518 relation_ref 129926 // <generalisation>
   from ref 128134 z 2001 to ref 128006
@@ -28,6 +48,31 @@ relationcanvas 128774 relation_ref 131206 // <generalisation>
 end
 relationcanvas 129030 relation_ref 138630 // <generalisation>
   from ref 128902 z 2001 to ref 128006
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+relationcanvas 129542 relation_ref 148358 // <generalisation>
+  from ref 129414 z 2001 to ref 128006
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+relationcanvas 129798 relation_ref 150150 // <generalisation>
+  from ref 129670 z 2007 to ref 128006
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+relationcanvas 130438 relation_ref 151686 // <generalisation>
+  from ref 129926 z 2001 to ref 128006
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+relationcanvas 130950 relation_ref 154246 // <generalisation>
+  from ref 130822 z 2001 to ref 128006
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+relationcanvas 131206 relation_ref 156294 // <generalisation>
+  from ref 131078 z 2006 to ref 128006
   no_role_a no_role_b
   no_multiplicity_a no_multiplicity_b
 end

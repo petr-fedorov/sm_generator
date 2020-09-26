@@ -1,0 +1,44 @@
+format 223
+
+pseudostatecanvas 128006 pseudostate_ref 143238 // initial 
+   xyz 35 156 2000
+end
+statecanvas 128134 state_ref 143878 // waiting
+  
+  xyzwh 104 146 2000 61 41
+end
+statecanvas 128390 state_ref 144006 // S1
+  
+  xyzwh 224 85 2000 533 181
+end
+statecanvas 128646 state_ref 144134 // S1.1
+  
+  xyzwh 250 175 2005 205 77
+end
+pseudostatecanvas 128774 pseudostate_ref 143366 // final 
+   xyz 636 199 2005
+end
+pseudostatecanvas 129030 pseudostate_ref 143494 // final 
+   xyz 482 332 2000
+end
+transitioncanvas 128262 transition_ref 143878 // T1
+  
+  from ref 128006 z 2001 to ref 128134
+  write_horizontally default show_definition default drawing_language default
+end
+transitioncanvas 128518 transition_ref 144006 // T2
+  
+  from ref 128134 z 2001 label "Start" xyz 180 157 3000 to ref 128390
+  write_horizontally default show_definition default drawing_language default
+end
+transitioncanvas 128902 transition_ref 144134 // T1.1
+  
+  from ref 128646 z 2006 to ref 128774
+  write_horizontally default show_definition default drawing_language default
+end
+transitioncanvas 129158 transition_ref 144262 // T3
+  
+  from ref 128390 z 2001 to ref 129030
+  write_horizontally default show_definition default drawing_language default
+end
+end

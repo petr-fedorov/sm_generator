@@ -1,0 +1,20 @@
+class S11_State
+!!!165126.cpp!!!	_completion(inout stm : Entering004) : bool
+  {
+    stm._set_currentState(stm._entering004_state._s1_state);
+#ifdef VERBOSE_STATE_MACHINE
+    std::cout << "DEBUG : current state is now .Entering004.S1" << std::endl;
+#endif
+    stm._final();
+    return (bool) 1;
+  }
+!!!165254.cpp!!!	create(inout stm : Entering004) : void
+	_doentry(stm);
+	_completion(stm);
+!!!165382.cpp!!!	_doentry(inout stm : Entering004) : void
+#ifdef VERBOSE_STATE_MACHINE
+  std::cout << "DEBUG : execute entry behavior of .Entering004.S1.S1.1" << std::endl;
+#endif
+stm.log("S1.1(entry)");
+!!!165510.cpp!!!	_upper(inout stm : Entering004) : Entering004::AnyState
+  return &stm._entering004_state._s1_state;

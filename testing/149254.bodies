@@ -1,0 +1,10 @@
+class Event018_State
+!!!179846.cpp!!!	create(inout stm : Event018) : void
+  {
+    stm._set_currentState(stm._event018_state._wait_state);
+#ifdef VERBOSE_STATE_MACHINE
+    std::cout << "DEBUG : current state is now .Event018.wait" << std::endl;
+#endif
+  }
+!!!182534.cpp!!!	_upper(inout stm : Event018) : Event018::AnyState
+  return 0;

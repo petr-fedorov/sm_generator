@@ -1,6 +1,7 @@
 class S111_State
 !!!180358.cpp!!!	_completion(inout stm : Event018) : bool
   {
+    for(auto s = stm._current_state; s != this && s; s = s->_upper(stm)) s->_doexit(stm);
     stm._event018_state._s1_state._s11_state._s111_state._doexit(stm);
     stm._event018_state._s1_state._s11_state._doexit(stm);
     stm._event018_state._s1_state._doexit(stm);

@@ -1,6 +1,7 @@
 class S11_State
 !!!129798.cpp!!!	sig(inout stm : CompoundTransitionExample) : void
   {
+    for(auto s = stm._current_state; s != this && s; s = s->_upper(stm)) s->_doexit(stm);
     stm._compoundtransitionexample_state._s_state._s1_state._s11_state._doexit(stm);
 #ifdef VERBOSE_STATE_MACHINE
     std::cout << "DEBUG : execute activity of transition <transition>" << std::endl;

@@ -1,6 +1,7 @@
 class Exit001_State
 !!!159750.cpp!!!	create(inout stm : Exit001) : void
   {
+    for(auto s = stm._current_state; s != this && s; s = s->_upper(stm)) s->_doexit(stm);
     stm._set_currentState(stm._exit001_state._waiting_state);
 #ifdef VERBOSE_STATE_MACHINE
     std::cout << "DEBUG : current state is now .Exit001.Waiting" << std::endl;

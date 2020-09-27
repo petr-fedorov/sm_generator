@@ -1,13 +1,21 @@
 class S1_State
 !!!160390.cpp!!!	create(inout stm : Exit001) : void
   {
+    for(auto s = stm._current_state; s != this && s; s = s->_upper(stm)) s->_doexit(stm);
     stm._set_currentState(stm._exit001_state._s1_state._s11_state);
 #ifdef VERBOSE_STATE_MACHINE
     std::cout << "DEBUG : current state is now .Exit001.S1.S1.1" << std::endl;
 #endif
     stm._exit001_state._s1_state._s11_state.create(stm);
   }
-!!!161414.cpp!!!	_exit1(inout stm : Exit001) : void
+!!!161542.cpp!!!	_doexit(inout stm : Exit001) : void
+#ifdef VERBOSE_STATE_MACHINE
+  std::cout << "DEBUG : execute exit behavior of .Exit001.S1" << std::endl;
+#endif
+stm.log("S1(exit)");
+!!!161670.cpp!!!	_upper(inout stm : Exit001) : Exit001::AnyState
+  return &stm._exit001_state;
+!!!190470.cpp!!!	_exit3(inout stm : Exit001) : void
   _doexit(stm);
   {
 #ifdef VERBOSE_STATE_MACHINE
@@ -19,10 +27,3 @@ stm.log("T3(effect)");    stm._set_currentState(stm._exit001_state);
 #endif
     stm._final();
   }
-!!!161542.cpp!!!	_doexit(inout stm : Exit001) : void
-#ifdef VERBOSE_STATE_MACHINE
-  std::cout << "DEBUG : execute exit behavior of .Exit001.S1" << std::endl;
-#endif
-stm.log("S1(exit)");
-!!!161670.cpp!!!	_upper(inout stm : Exit001) : Exit001::AnyState
-  return &stm._exit001_state;

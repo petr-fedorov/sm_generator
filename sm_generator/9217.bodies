@@ -1,0 +1,16 @@
+class UmlPackage
+!!!134534.cpp!!!	generate() : void
+UmlPackage::generate(this);
+!!!134662.cpp!!!	generate(inout parent : UmlItem) : void
+auto ch = parent->children();
+for (unsigned i = 0; i < ch.count(); ++i) {
+  switch (ch[i]->kind()) {
+  case aPackage:
+  case aClassView:
+    UmlPackage::generate(ch[i]);
+    break;
+  case aState:
+    UmlCom::trace("Generating "+ ch[i]->name());
+    ch[i]->generate();
+  }
+}

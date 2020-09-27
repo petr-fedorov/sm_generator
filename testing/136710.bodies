@@ -1,6 +1,7 @@
 class Exiting001_State
 !!!145286.cpp!!!	create(inout stm : Exiting001) : void
   {
+    for(auto s = stm._current_state; s != this && s; s = s->_upper(stm)) s->_doexit(stm);
     stm._set_currentState(stm._exiting001_state._wating_state);
 #ifdef VERBOSE_STATE_MACHINE
     std::cout << "DEBUG : current state is now .Exiting001.Wating" << std::endl;

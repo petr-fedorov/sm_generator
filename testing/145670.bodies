@@ -1,6 +1,7 @@
 class S111_State
 !!!160518.cpp!!!	_completion(inout stm : Exit001) : bool
   {
+    for(auto s = stm._current_state; s != this && s; s = s->_upper(stm)) s->_doexit(stm);
     stm._exit001_state._s1_state._s11_state._s111_state._doexit(stm);
     stm._exit001_state._s1_state._s11_state._doexit(stm);
 #ifdef VERBOSE_STATE_MACHINE
@@ -10,7 +11,7 @@ stm.log("T1.2(effect)");    stm._set_currentState(stm._exit001_state._s1_state);
 #ifdef VERBOSE_STATE_MACHINE
     std::cout << "DEBUG : current state is now .Exit001.S1" << std::endl;
 #endif
-    stm._exit001_state._s1_state._exit1(stm);
+    stm._exit001_state._s1_state._exit3(stm);
     return (bool) 1;
   }
 !!!160646.cpp!!!	create(inout stm : Exit001) : void

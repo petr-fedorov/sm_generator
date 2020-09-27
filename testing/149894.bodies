@@ -1,6 +1,7 @@
 class S2_State
 !!!182150.cpp!!!	_completion(inout stm : Event018) : bool
   {
+    for(auto s = stm._current_state; s != this && s; s = s->_upper(stm)) s->_doexit(stm);
     stm._set_currentState(stm._event018_state);
 #ifdef VERBOSE_STATE_MACHINE
     std::cout << "DEBUG : current state is now .Event018" << std::endl;

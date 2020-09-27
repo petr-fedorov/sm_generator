@@ -3,6 +3,7 @@ class Wating_State
   return &stm._exiting001_state;
 !!!158086.cpp!!!	Start(inout stm : Exiting001) : void
   {
+    for(auto s = stm._current_state; s != this && s; s = s->_upper(stm)) s->_doexit(stm);
     stm._set_currentState(stm._exiting001_state._s1_state);
 #ifdef VERBOSE_STATE_MACHINE
     std::cout << "DEBUG : current state is now .Exiting001.S1" << std::endl;

@@ -1,6 +1,7 @@
 class S11_State
 !!!135174.cpp!!!	_completion(inout stm : Exiting004) : bool
   {
+    for(auto s = stm._current_state; s != this && s; s = s->_upper(stm)) s->_doexit(stm);
     stm._exiting004_state._s1_state._s11_state._doexit(stm);
 #ifdef VERBOSE_STATE_MACHINE
     std::cout << "DEBUG : execute activity of transition T1.2" << std::endl;
@@ -9,7 +10,7 @@ stm.log("T1.2(effect)");    stm._set_currentState(stm._exiting004_state._s1_stat
 #ifdef VERBOSE_STATE_MACHINE
     std::cout << "DEBUG : current state is now .Exiting004.S1" << std::endl;
 #endif
-    stm._exiting004_state._s1_state._exit1(stm);
+    stm._exiting004_state._s1_state._exit2(stm);
     return (bool) 1;
   }
 !!!135302.cpp!!!	create(inout stm : Exiting004) : void

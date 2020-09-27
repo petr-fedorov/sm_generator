@@ -1,6 +1,6 @@
 format 223
 "testing"
-  revision 4
+  revision 7
   modified_by 6 "petr"
   cpp_root_dir "/tmp/generator_testing/"
 
@@ -232,7 +232,6 @@ ${inlines}
       explicit_switch_type ""
       mysql_decl ""
       
-      locked
       ncouples 1
       key "STM generated" value ""
       comment " implement the state machine CompoundTransitionExample"
@@ -249,7 +248,6 @@ ${inlines}
 	explicit_switch_type ""
 	mysql_decl ""
 	
-	locked
 	ncouples 1
 	key "STM generated" value ""
 	comment " Mother class of all the classes representing states"
@@ -336,6 +334,24 @@ ${inlines}
 	  ncouples 1
 	  key "STM generated" value ""
 	end
+
+	operation 189830 "_doexit"
+	  force_body_gen cpp_virtual public explicit_return_type "void"
+	  nparams 1
+	    param inout name "stm" type class_ref 128006 // CompoundTransitionExample
+	  cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} &${)}${const}${volatile}${throw}${abstract};
+"
+	  cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${t0} &${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	  
+	  
+	  
+	  
+	  ncouples 1
+	  key "STM generated" value ""
+	  comment " performs the 'exit activity'"
+	end
       end
 
       class 128262 "CompoundTransitionExample_State"
@@ -351,7 +367,6 @@ ${inlines}
 	explicit_switch_type ""
 	mysql_decl ""
 	
-	locked
 	ncouples 1
 	key "STM generated" value ""
 	comment " implement the state CompoundTransitionExample"
@@ -368,7 +383,6 @@ ${inlines}
 	  explicit_switch_type ""
 	  mysql_decl ""
 	  
-	  locked
 	  ncouples 1
 	  key "STM generated" value ""
 	  comment " implement the state S"
@@ -385,7 +399,6 @@ ${inlines}
 	    explicit_switch_type ""
 	    mysql_decl ""
 	    
-	    locked
 	    ncouples 1
 	    key "STM generated" value ""
 	    comment " implement the state S1"
@@ -402,7 +415,6 @@ ${inlines}
 	      explicit_switch_type ""
 	      mysql_decl ""
 	      
-	      locked
 	      ncouples 1
 	      key "STM generated" value ""
 	      comment " implement the state S11"
@@ -610,7 +622,6 @@ ${inlines}
 	    explicit_switch_type ""
 	    mysql_decl ""
 	    
-	    locked
 	    ncouples 1
 	    key "STM generated" value ""
 	    comment " implement the state T1"
@@ -627,7 +638,6 @@ ${inlines}
 	      explicit_switch_type ""
 	      mysql_decl ""
 	      
-	      locked
 	      ncouples 1
 	      key "STM generated" value ""
 	      comment " implement the state T11"
@@ -644,7 +654,6 @@ ${inlines}
 		explicit_switch_type ""
 		mysql_decl ""
 		
-		locked
 		ncouples 1
 		key "STM generated" value ""
 		comment " implement the state T111"
@@ -1477,6 +1486,24 @@ ${inlines}
 	  key "STM generated" value ""
 	  comment " the current state doesn't manage the event Start, give it to the upper state"
 	end
+
+	operation 189958 "_doexit"
+	  force_body_gen cpp_virtual public explicit_return_type "void"
+	  nparams 1
+	    param inout name "stm" type class_ref 136454 // Exiting001
+	  cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} &${)}${const}${volatile}${throw}${abstract};
+"
+	  cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${t0} &${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	  
+	  
+	  
+	  
+	  ncouples 1
+	  key "STM generated" value ""
+	  comment " performs the 'exit activity'"
+	end
       end
 
       class 136710 "Exiting001_State"
@@ -2177,7 +2204,7 @@ ${inlines}
 	relation 148742 -_->
 	  stereotype "friend"
 	  a public
-	    cpp default "#include in source"
+	    cpp default "${type}"
 	    classrelation_ref 148742 // <dependency>
 	  b parent class_ref 137222 // S111_State
       end
@@ -2186,12 +2213,11 @@ ${inlines}
 	relation 148870 -_->
 	  stereotype "friend"
 	  a public
-	    cpp default "#include in source"
+	    cpp default "${type}"
 	    classrelation_ref 148870 // <dependency>
 	  b parent class_ref 137094 // S11_State
       end
     end
-
   end
 
   classview 128262 "PSSM-Exiting 004"
@@ -2219,7 +2245,7 @@ ${inlines}
       comment "See 9.3.6.5 Exiting 004 of Precise Semantics of UML State Machines (PSSM) Version 1.0
 "
       statediagram 128262 "Exiting004"
-	statediagramsettings show_trans_definition yes
+	statediagramsettings show_trans_definition no
 	 drawing_language c++ end
 	comment "The purpose of this test is to validate that, when a composite state is exited using an exit point, then the effect behavior of the transition entering this pseudostate is executed before the exit behavior of the state. At the point
 where the state machine is in configuration S1[S1.1], the completion event generated for S1.1 is dispatched and accepted. This initiates an RTC step during which S1.1 is exited, the effect behavior is of T1.2 is executed, S1 is exited and finally the continuation transition T3 is traversed.
@@ -2228,7 +2254,7 @@ where the state machine is in configuration S1[S1.1], the completion event gener
       end
 
       state 129030 "Waiting"
-	transition 129286 "<transition>"
+	transition 129286 "T2"
 	  on state_ref 129158 // S1
 	    cpp_trigger "start"
 	  external 
@@ -2261,7 +2287,7 @@ where the state machine is in configuration S1[S1.1], the completion event gener
 	end
 
 	pseudostate 128902 exit_point "exit"
-	  transition 129158 "<transition>"
+	  transition 129158 "T3"
 	    on pseudostate_ref 129030 // final 
 	      cpp_expr "stm.log(\"T3(effect)\");"
 	    external 
@@ -2387,6 +2413,24 @@ ${inlines}
 	  
 	  ncouples 1
 	  key "STM generated" value ""
+	end
+
+	operation 190086 "_doexit"
+	  force_body_gen cpp_virtual public explicit_return_type "void"
+	  nparams 1
+	    param inout name "stm" type class_ref 129286 // Exiting004
+	  cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} &${)}${const}${volatile}${throw}${abstract};
+"
+	  cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${t0} &${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	  
+	  
+	  
+	  
+	  ncouples 1
+	  key "STM generated" value ""
+	  comment " performs the 'exit activity'"
 	end
       end
 
@@ -2668,24 +2712,6 @@ ${inlines}
 	    comment " to manage the event create"
 	  end
 
-	  operation 135814 "_exit1"
-	    force_body_gen public explicit_return_type "void"
-	    nparams 1
-	      param inout name "stm" type class_ref 129286 // Exiting004
-	    cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} & ${p0}${)}${const}${volatile}${throw}${abstract};
-"
-	    cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${t0} & ${p0}${)}${const}${volatile}${throw}${staticnl}{
-  ${body}}
-"
-	    
-	    
-	    
-	    
-	    ncouples 1
-	    key "STM generated" value ""
-	    comment " to manage the exit point 'exit', defined because probably shared"
-	  end
-
 	  operation 135942 "_doexit"
 	    force_body_gen public explicit_return_type "void"
 	    nparams 1
@@ -2720,6 +2746,24 @@ ${inlines}
 	    ncouples 1
 	    key "STM generated" value ""
 	    comment " returns the state containing the current"
+	  end
+
+	  operation 197638 "_exit2"
+	    force_body_gen public explicit_return_type "void"
+	    nparams 1
+	      param inout name "stm" type class_ref 129286 // Exiting004
+	    cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} & ${p0}${)}${const}${volatile}${throw}${abstract};
+"
+	    cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${t0} & ${p0}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	    
+	    
+	    
+	    
+	    ncouples 1
+	    key "STM generated" value ""
+	    comment " to manage the exit point 'exit', defined because probably shared"
 	  end
 	end
 
@@ -3207,6 +3251,24 @@ ${inlines}
 	  key "STM generated" value ""
 	  comment " the current state doesn't manage the event Start, give it to the upper state"
 	end
+
+	operation 190342 "_doexit"
+	  force_body_gen cpp_virtual public explicit_return_type "void"
+	  nparams 1
+	    param inout name "stm" type class_ref 144902 // Exit001
+	  cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} &${)}${const}${volatile}${throw}${abstract};
+"
+	  cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${t0} &${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	  
+	  
+	  
+	  
+	  ncouples 1
+	  key "STM generated" value ""
+	  comment " performs the 'exit activity'"
+	end
       end
 
       class 145158 "Exit001_State"
@@ -3597,24 +3659,6 @@ ${inlines}
 	    comment " to manage the event create"
 	  end
 
-	  operation 161414 "_exit1"
-	    force_body_gen public explicit_return_type "void"
-	    nparams 1
-	      param inout name "stm" type class_ref 144902 // Exit001
-	    cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} & ${p0}${)}${const}${volatile}${throw}${abstract};
-"
-	    cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${t0} & ${p0}${)}${const}${volatile}${throw}${staticnl}{
-  ${body}}
-"
-	    
-	    
-	    
-	    
-	    ncouples 1
-	    key "STM generated" value ""
-	    comment " to manage the exit point 'exit', defined because probably shared"
-	  end
-
 	  operation 161542 "_doexit"
 	    force_body_gen public explicit_return_type "void"
 	    nparams 1
@@ -3649,6 +3693,24 @@ ${inlines}
 	    ncouples 1
 	    key "STM generated" value ""
 	    comment " returns the state containing the current"
+	  end
+
+	  operation 190470 "_exit3"
+	    force_body_gen public explicit_return_type "void"
+	    nparams 1
+	      param inout name "stm" type class_ref 144902 // Exit001
+	    cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} & ${p0}${)}${const}${volatile}${throw}${abstract};
+"
+	    cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${t0} & ${p0}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	    
+	    
+	    
+	    
+	    ncouples 1
+	    key "STM generated" value ""
+	    comment " to manage the exit point 'exit', defined because probably shared"
 	  end
 	end
 
@@ -3828,7 +3890,7 @@ ${inlines}
 	relation 147206 -_->
 	  stereotype "friend"
 	  a public
-	    cpp default "#include in source"
+	    cpp default "${type}"
 	    classrelation_ref 147206 // <dependency>
 	  b parent class_ref 145286 // Waiting_State
       end
@@ -3837,7 +3899,7 @@ ${inlines}
 	relation 147718 -_->
 	  stereotype "friend"
 	  a public
-	    cpp default "#include in source"
+	    cpp default "${type}"
 	    classrelation_ref 147718 // <dependency>
 	  b parent class_ref 145670 // S111_State
       end
@@ -3846,7 +3908,7 @@ ${inlines}
 	relation 147846 -_->
 	  stereotype "friend"
 	  a public
-	    cpp default "#include in source"
+	    cpp default "${type}"
 	    classrelation_ref 147846 // <dependency>
 	  b parent class_ref 145542 // S11_State
       end
@@ -3855,7 +3917,7 @@ ${inlines}
 	relation 147974 -_->
 	  stereotype "friend"
 	  a public
-	    cpp default "#include in source"
+	    cpp default "${type}"
 	    classrelation_ref 147974 // <dependency>
 	  b parent class_ref 145414 // S1_State
       end
@@ -3864,7 +3926,7 @@ ${inlines}
 	relation 148102 -_->
 	  stereotype "friend"
 	  a public
-	    cpp default "#include in source"
+	    cpp default "${type}"
 	    classrelation_ref 148102 // <dependency>
 	  b parent class_ref 145158 // Exit001_State
       end
@@ -4125,6 +4187,24 @@ ${inlines}
 	  ncouples 1
 	  key "STM generated" value ""
 	  comment " the current state doesn't manage the event Start, give it to the upper state"
+	end
+
+	operation 190598 "_doexit"
+	  force_body_gen cpp_virtual public explicit_return_type "void"
+	  nparams 1
+	    param inout name "stm" type class_ref 145798 // Entering004
+	  cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} &${)}${const}${volatile}${throw}${abstract};
+"
+	  cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${t0} &${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	  
+	  
+	  
+	  
+	  ncouples 1
+	  key "STM generated" value ""
+	  comment " performs the 'exit activity'"
 	end
       end
 
@@ -4636,7 +4716,7 @@ ${inlines}
 	relation 149254 -_->
 	  stereotype "friend"
 	  a public
-	    cpp default "#include in source"
+	    cpp default "${type}"
 	    classrelation_ref 149254 // <dependency>
 	  b parent class_ref 146182 // waiting_State
       end
@@ -4645,7 +4725,7 @@ ${inlines}
 	relation 149638 -_->
 	  stereotype "friend"
 	  a public
-	    cpp default "#include in source"
+	    cpp default "${type}"
 	    classrelation_ref 149638 // <dependency>
 	  b parent class_ref 146438 // S11_State
       end
@@ -4654,7 +4734,7 @@ ${inlines}
 	relation 149766 -_->
 	  stereotype "friend"
 	  a public
-	    cpp default "#include in source"
+	    cpp default "${type}"
 	    classrelation_ref 149766 // <dependency>
 	  b parent class_ref 146310 // S1_State
       end
@@ -4663,7 +4743,7 @@ ${inlines}
 	relation 149894 -_->
 	  stereotype "friend"
 	  a public
-	    cpp default "#include in source"
+	    cpp default "${type}"
 	    classrelation_ref 149894 // <dependency>
 	  b parent class_ref 146054 // Entering004_State
       end
@@ -4932,6 +5012,24 @@ ${inlines}
 	  ncouples 1
 	  key "STM generated" value ""
 	  comment " the current state doesn't manage the event Start, give it to the upper state"
+	end
+
+	operation 190726 "_doexit"
+	  force_body_gen cpp_virtual public explicit_return_type "void"
+	  nparams 1
+	    param inout name "stm" type class_ref 146566 // Entering005
+	  cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} &${)}${const}${volatile}${throw}${abstract};
+"
+	  cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${t0} &${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	  
+	  
+	  
+	  
+	  ncouples 1
+	  key "STM generated" value ""
+	  comment " performs the 'exit activity'"
 	end
       end
 
@@ -5519,7 +5617,7 @@ ${inlines}
 	relation 150534 -_->
 	  stereotype "friend"
 	  a public
-	    cpp default "#include in source"
+	    cpp default "${type}"
 	    classrelation_ref 150534 // <dependency>
 	  b parent class_ref 146950 // waiting_State
       end
@@ -5528,7 +5626,7 @@ ${inlines}
 	relation 151046 -_->
 	  stereotype "friend"
 	  a public
-	    cpp default "#include in source"
+	    cpp default "${type}"
 	    classrelation_ref 151046 // <dependency>
 	  b parent class_ref 147334 // S111_State
       end
@@ -5537,7 +5635,7 @@ ${inlines}
 	relation 151174 -_->
 	  stereotype "friend"
 	  a public
-	    cpp default "#include in source"
+	    cpp default "${type}"
 	    classrelation_ref 151174 // <dependency>
 	  b parent class_ref 147206 // S11_State
       end
@@ -5546,7 +5644,7 @@ ${inlines}
 	relation 151302 -_->
 	  stereotype "friend"
 	  a public
-	    cpp default "#include in source"
+	    cpp default "${type}"
 	    classrelation_ref 151302 // <dependency>
 	  b parent class_ref 147078 // S1_State
       end
@@ -5555,7 +5653,7 @@ ${inlines}
 	relation 151430 -_->
 	  stereotype "friend"
 	  a public
-	    cpp default "#include in source"
+	    cpp default "${type}"
 	    classrelation_ref 151430 // <dependency>
 	  b parent class_ref 146822 // Entering005_State
       end
@@ -5716,7 +5814,6 @@ ${inlines}
 	pseudostate 144390 final ""
 	end
       end
-
     end
 
     class 148230 "Entering009"
@@ -5833,6 +5930,24 @@ ${inlines}
 	  ncouples 1
 	  key "STM generated" value ""
 	  comment " the current state doesn't manage the event Start, give it to the upper state"
+	end
+
+	operation 190854 "_doexit"
+	  force_body_gen cpp_virtual public explicit_return_type "void"
+	  nparams 1
+	    param inout name "stm" type class_ref 148230 // Entering009
+	  cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} &${)}${const}${volatile}${throw}${abstract};
+"
+	  cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${t0} &${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	  
+	  
+	  
+	  
+	  ncouples 1
+	  key "STM generated" value ""
+	  comment " performs the 'exit activity'"
 	end
       end
 
@@ -6292,7 +6407,7 @@ ${inlines}
 	relation 153350 -_->
 	  stereotype "friend"
 	  a public
-	    cpp default "#include in source"
+	    cpp default "${type}"
 	    classrelation_ref 153350 // <dependency>
 	  b parent class_ref 148614 // waiting_State
       end
@@ -6301,7 +6416,7 @@ ${inlines}
 	relation 153734 -_->
 	  stereotype "friend"
 	  a public
-	    cpp default "#include in source"
+	    cpp default "${type}"
 	    classrelation_ref 153734 // <dependency>
 	  b parent class_ref 148870 // S11_State
       end
@@ -6310,7 +6425,7 @@ ${inlines}
 	relation 153862 -_->
 	  stereotype "friend"
 	  a public
-	    cpp default "#include in source"
+	    cpp default "${type}"
 	    classrelation_ref 153862 // <dependency>
 	  b parent class_ref 148742 // S1_State
       end
@@ -6319,7 +6434,7 @@ ${inlines}
 	relation 153990 -_->
 	  stereotype "friend"
 	  a public
-	    cpp default "#include in source"
+	    cpp default "${type}"
 	    classrelation_ref 153990 // <dependency>
 	  b parent class_ref 148486 // Entering009_State
       end
@@ -6628,6 +6743,24 @@ ${inlines}
 	  ncouples 1
 	  key "STM generated" value ""
 	  comment " the current state doesn't manage the event Start, give it to the upper state"
+	end
+
+	operation 190982 "_doexit"
+	  force_body_gen cpp_virtual public explicit_return_type "void"
+	  nparams 1
+	    param inout name "stm" type class_ref 148998 // Event018
+	  cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} &${)}${const}${volatile}${throw}${abstract};
+"
+	  cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${t0} &${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	  
+	  
+	  
+	  
+	  ncouples 1
+	  key "STM generated" value ""
+	  comment " performs the 'exit activity'"
 	end
       end
 
@@ -7451,7 +7584,7 @@ ${inlines}
 	relation 154630 -_->
 	  stereotype "friend"
 	  a public
-	    cpp default "#include in source"
+	    cpp default "${type}"
 	    classrelation_ref 154630 // <dependency>
 	  b parent class_ref 149382 // wait_State
       end
@@ -7460,7 +7593,7 @@ ${inlines}
 	relation 155142 -_->
 	  stereotype "friend"
 	  a public
-	    cpp default "#include in source"
+	    cpp default "${type}"
 	    classrelation_ref 155142 // <dependency>
 	  b parent class_ref 149766 // S111_State
       end
@@ -7469,7 +7602,7 @@ ${inlines}
 	relation 155270 -_->
 	  stereotype "friend"
 	  a public
-	    cpp default "#include in source"
+	    cpp default "${type}"
 	    classrelation_ref 155270 // <dependency>
 	  b parent class_ref 149638 // S11_State
       end
@@ -7478,7 +7611,7 @@ ${inlines}
 	relation 155398 -_->
 	  stereotype "friend"
 	  a public
-	    cpp default "#include in source"
+	    cpp default "${type}"
 	    classrelation_ref 155398 // <dependency>
 	  b parent class_ref 149510 // S1_State
       end
@@ -7487,7 +7620,7 @@ ${inlines}
 	relation 155782 -_->
 	  stereotype "friend"
 	  a public
-	    cpp default "#include in source"
+	    cpp default "${type}"
 	    classrelation_ref 155782 // <dependency>
 	  b parent class_ref 150022 // S12_State
       end
@@ -7496,7 +7629,7 @@ ${inlines}
 	relation 155910 -_->
 	  stereotype "friend"
 	  a public
-	    cpp default "#include in source"
+	    cpp default "${type}"
 	    classrelation_ref 155910 // <dependency>
 	  b parent class_ref 149894 // S2_State
       end
@@ -7505,7 +7638,7 @@ ${inlines}
 	relation 156038 -_->
 	  stereotype "friend"
 	  a public
-	    cpp default "#include in source"
+	    cpp default "${type}"
 	    classrelation_ref 156038 // <dependency>
 	  b parent class_ref 149254 // Event018_State
       end
@@ -7699,7 +7832,6 @@ ${includes}
 ${namespace_start}
 ${members}
 ${namespace_end}"
-      locked
       associated_elems
 	class_ref 128006 // CompoundTransitionExample
       end

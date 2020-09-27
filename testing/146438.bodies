@@ -1,6 +1,7 @@
 class S11_State
 !!!165126.cpp!!!	_completion(inout stm : Entering004) : bool
   {
+    for(auto s = stm._current_state; s != this && s; s = s->_upper(stm)) s->_doexit(stm);
     stm._set_currentState(stm._entering004_state._s1_state);
 #ifdef VERBOSE_STATE_MACHINE
     std::cout << "DEBUG : current state is now .Entering004.S1" << std::endl;

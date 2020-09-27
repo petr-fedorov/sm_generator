@@ -1,6 +1,7 @@
 class Event018_State
 !!!179846.cpp!!!	create(inout stm : Event018) : void
   {
+    for(auto s = stm._current_state; s != this && s; s = s->_upper(stm)) s->_doexit(stm);
     stm._set_currentState(stm._event018_state._wait_state);
 #ifdef VERBOSE_STATE_MACHINE
     std::cout << "DEBUG : current state is now .Event018.wait" << std::endl;

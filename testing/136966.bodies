@@ -8,6 +8,7 @@ class S1_State
 stm.log("S1(exit)");
 !!!146822.cpp!!!	Continue(inout stm : Exiting001) : void
   {
+    for(auto s = stm._current_state; s != this && s; s = s->_upper(stm)) s->_doexit(stm);
     stm._exiting001_state._s1_state._doexit(stm);
 #ifdef VERBOSE_STATE_MACHINE
     std::cout << "DEBUG : execute activity of transition T3" << std::endl;
@@ -20,6 +21,7 @@ stm.log("T3(effect)");    stm._set_currentState(stm._exiting001_state);
   }
 !!!162310.cpp!!!	create(inout stm : Exiting001) : void
   {
+    for(auto s = stm._current_state; s != this && s; s = s->_upper(stm)) s->_doexit(stm);
     stm._set_currentState(stm._exiting001_state._s1_state._s11_state);
 #ifdef VERBOSE_STATE_MACHINE
     std::cout << "DEBUG : current state is now .Exiting001.S1.S1.1" << std::endl;

@@ -3,6 +3,7 @@ class waiting_State
   return &stm._entering005_state;
 !!!171142.cpp!!!	Start(inout stm : Entering005) : void
   {
+    for(auto s = stm._current_state; s != this && s; s = s->_upper(stm)) s->_doexit(stm);
 #ifdef VERBOSE_STATE_MACHINE
     std::cout << "DEBUG : execute activity of transition T2" << std::endl;
 #endif

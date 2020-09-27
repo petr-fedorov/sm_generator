@@ -181,6 +181,23 @@ class UmlState
       da->setParams("${t0} &");
       da->set_isCppVirtual(TRUE);
       
+      // add virtual operation _doexit
+      UmlOperation * de;
+      
+      if (((de = (UmlOperation *) anystate->getChild(anOperation, "_doexit")) == 0) &&
+	  ((de = UmlBaseOperation::create(anystate, "_doexit")) == 0)) {
+	UmlCom::trace("Error : cannot create operation _doexit in class '"
+		      + anystate->name() + "'<br>");
+	throw 0;
+      }
+      de->defaultDef();
+      de->setComment("performs the 'exit activity'");
+      de->setType("void", "${type}");
+      if (de->params().isEmpty())
+	de->addParam(0, InputOutputDirection, "stm", machine);
+      de->setParams("${t0} &");
+      de->set_isCppVirtual(TRUE);
+
       // add if needed classes associated to each state, and set flags
       init(machine, "", "", this);
       

@@ -1,7 +1,7 @@
-format 222
+format 223
 "API USER" // API USER
-  revision 37
-  modified_by 2 "pi"
+  revision 42
+  modified_by 6 "petr"
   // class settings
   
   classdiagramsettings member_max_width 0 end
@@ -1628,6 +1628,37 @@ ${members}};
 "
 	java_def "  ${comment}${visibility}${final}${name}${(}${t0} ${p0}, ${t1} ${p1}${)}${throws}{ super(id, n); }
 "
+	
+	
+	
+      end
+
+      operation 134534 "generate"
+	cpp_virtual public explicit_return_type "void"
+	nparams 0
+	cpp_decl "    ${comment}${static}${virtual}${type} ${name}${(}${)}${const}${volatile}${abstract};
+"
+	cpp_def "${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${staticnl}{
+${body}}
+"
+	java_def "  ${comment}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${)}${throws}${staticnl}{
+${body}}
+"
+	
+	
+	
+      end
+
+      operation 134662 "generate"
+	class_operation public explicit_return_type "void"
+	nparams 1
+	  param inout name "parent" type class_ref 8833 // UmlItem
+	cpp_decl "    ${comment}${static}${virtual}${type} ${name}${(}${t0} * ${p0}${v0}${)}${const}${volatile}${abstract};
+"
+	cpp_def "${inline}${type} ${class}::${name}${(}${t0} * ${p0}${)}${const}${volatile}${staticnl}{
+${body}}
+"
+	
 	
 	
 	
@@ -5515,7 +5546,7 @@ int main(int argc, char ** argv)
   
   if (UmlCom::connect(QString(argv[1]).toUInt())) {
     try {
-      UmlCom::trace(\"<b>State Machine C++ generator</b> release 5.0.1<br>\");
+      UmlCom::trace(\"<b>Enhanced State Machine C++ generator</b> release 5.0.1.1<br>\");
       UmlCom::targetItem()->generate();
     }
     catch (...) {
@@ -6112,13 +6143,11 @@ ${namespace_end}
 #endif
 "
       cpp_src "${comment}
+#include \"UmlCom.h\"
 ${includes}
 ${namespace_start}
 ${members}
 ${namespace_end}"
-      java_src "${comment}
-${package}
-${definition}"
       associated_elems
 	class_ref 9217 // UmlPackage
       end
@@ -6724,15 +6753,13 @@ ${namespace_end}
 #endif
 "
       cpp_src "${comment}
+#include \"UmlCom.h\"
 ${includes}
 #include \"UmlTransition.h\"
 
 ${namespace_start}
 ${members}
 ${namespace_end}"
-      java_src "${comment}
-${package}
-${definition}"
       associated_elems
 	class_ref 132098 // UmlChoicePseudoState
       end

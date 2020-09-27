@@ -158,24 +158,30 @@ class UmlTransition
       
       // compute common parent and manage exit behavior
       if (tr->target()->kind() != aTerminatePseudoState) {
-	while (! ((UmlState *) tg)->inside(common)) {
-	  if (!fromExit && !common->cppExitBehavior().isEmpty())
-	    body += indent + "  stm" + common->path() + "._doexit(stm);\n";
-	  fromExit = FALSE;
-	  
-	  switch (common->parent()->kind()) {
-	  case aState:
-	    common = (UmlState *) common->parent();
-	    break;
-	  case aRegion:
-	    common = (UmlState *) common->parent()->parent();
-	    break;
-	  default:
-	    UmlCom::trace("Error : transition from '" + state->name()
-			  + "' goes outside the state machine");
-	    throw 0;
-	  }
-	}
+
+        if (tr->parent()->kind() != anExitPointPseudoState)
+          body += indent + "  for(auto s = stm._current_state; s != this && "
+                           "s; s = s->_upper(stm)) s->_doexit(stm);\n";
+
+        while (!((UmlState *)tg)->inside(common)) {
+
+          if (!fromExit && !common->cppExitBehavior().isEmpty())
+            body += indent + "  stm" + common->path() + "._doexit(stm);\n";
+          fromExit = FALSE;
+
+          switch (common->parent()->kind()) {
+          case aState:
+            common = (UmlState *)common->parent();
+            break;
+          case aRegion:
+            common = (UmlState *)common->parent()->parent();
+            break;
+          default:
+            UmlCom::trace("Error : transition from '" + state->name() +
+                          "' goes outside the state machine");
+            throw 0;
+          }
+        }
       }
     }
     

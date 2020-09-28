@@ -231,7 +231,6 @@ return TRUE;
       
       machine->addDestructor();
       
-      UmlCom::trace("... about to generate machine");
       // generate the machine
       generate(machine, anystate, this);
       

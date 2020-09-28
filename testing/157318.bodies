@@ -1,0 +1,15 @@
+class S2_State
+!!!214662.cpp!!!	_completion(inout stm : Event016) : bool
+  {
+    for(auto s = stm._current_state; s != this && s; s = s->_upper(stm)) s->_doexit(stm);
+    stm._set_currentState(stm._event016_state);
+#ifdef VERBOSE_STATE_MACHINE
+    std::cout << "DEBUG : current state is now .Event016" << std::endl;
+#endif
+    stm._final();
+    return (bool) 1;
+  }
+!!!214790.cpp!!!	create(inout stm : Event016) : void
+	_completion(stm);
+!!!214918.cpp!!!	_upper(inout stm : Event016) : Event016::AnyState
+  return &stm._event016_state;

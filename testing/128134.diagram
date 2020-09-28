@@ -36,6 +36,10 @@ classcanvas 131078 class_ref 148998 // Event018
   classdiagramsettings member_max_width 0 end
   xyz 571 166 2005
 end
+classcanvas 131334 class_ref 156550 // Event016
+  classdiagramsettings member_max_width 0 end
+  xyz 582 116 2011
+end
 relationcanvas 128518 relation_ref 129926 // <generalisation>
   from ref 128134 z 2001 to ref 128006
   no_role_a no_role_b
@@ -73,6 +77,11 @@ relationcanvas 130950 relation_ref 154246 // <generalisation>
 end
 relationcanvas 131206 relation_ref 156294 // <generalisation>
   from ref 131078 z 2006 to ref 128006
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+relationcanvas 131462 relation_ref 164230 // <generalisation>
+  from ref 131334 z 2012 to ref 128006
   no_role_a no_role_b
   no_multiplicity_a no_multiplicity_b
 end

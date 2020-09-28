@@ -1,0 +1,32 @@
+class Event016
+!!!212614.cpp!!!	Event016()
+  _current_state = 0;
+!!!212870.cpp!!!	create() : bool
+if (_current_state == 0)
+  (_current_state = &(*this)._event016_state)->create(*this);
+return (_current_state != 0);
+!!!213254.cpp!!!	Start() : bool
+  if (_current_state != 0) {
+#ifdef VERBOSE_STATE_MACHINE
+    std::cout << "DEBUG : fire trigger Start" << std::endl;
+#endif
+    _current_state->Start(*this);
+  }
+  return (_current_state != 0);
+!!!213766.cpp!!!	Continue() : bool
+  if (_current_state != 0) {
+#ifdef VERBOSE_STATE_MACHINE
+    std::cout << "DEBUG : fire trigger Continue" << std::endl;
+#endif
+    _current_state->Continue(*this);
+  }
+  return (_current_state != 0);
+!!!215174.cpp!!!	doActivity() : void
+  _current_state->_do(*this);
+!!!215302.cpp!!!	_set_currentState(inout st : Event016::AnyState) : void
+  _current_state = &st;
+!!!215430.cpp!!!	_final() : void
+  _current_state = 0;
+#ifdef VERBOSE_STATE_MACHINE
+    std::cout << "DEBUG : final state reached" << std::endl;
+#endif

@@ -52,7 +52,7 @@ transitioncanvas 129414 transition_ref 144774 // T1.1
 end
 transitioncanvas 129670 transition_ref 145030 // T2
   
-  from ref 128134 z 2011 label "Start / stm.log(\"T2(effect)\");" xyz 187 244 3000 to ref 128646
+  from ref 128134 z 2011 label "Start / stm.log(\"T2(effect)\");" xyz 187 244 2011 to ref 128646
   write_horizontally default show_definition default drawing_language default
 end
 line 129926 -_-_

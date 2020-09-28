@@ -1,0 +1,65 @@
+format 223
+
+pseudostatecanvas 128006 pseudostate_ref 151686 // initial 
+   xyz 64 61 2000
+end
+statecanvas 128134 state_ref 152838 // wait
+  
+  xyzwh 48 177 2000 43 41
+end
+statecanvas 128390 state_ref 152966 // S1
+  
+  xyzwh 214 59 2000 215 259
+end
+statecanvas 128518 state_ref 153094 // S1.1
+  
+  xyzwh 294 167 2005 45 41
+end
+pseudostatecanvas 128646 pseudostate_ref 151814 // initial 
+   xyz 306 104 2005
+end
+pseudostatecanvas 128902 pseudostate_ref 151942 // final 
+   xyz 307 285 2005
+end
+statecanvas 129158 state_ref 153222 // S2
+  
+  xyzwh 620 167 2000 40 41
+end
+pseudostatecanvas 129414 pseudostate_ref 152070 // final 
+   xyz 726 176 2000
+end
+transitioncanvas 128262 transition_ref 152966 // T1
+  decenter_end 604
+  
+  from ref 128006 z 2001 to ref 128134
+  write_horizontally default show_definition default drawing_language default
+end
+transitioncanvas 128774 transition_ref 153094 // T1.1
+  
+  from ref 128646 z 2006 to ref 128518
+  write_horizontally default show_definition default drawing_language default
+end
+transitioncanvas 129030 transition_ref 153222 // T1.2
+  
+  from ref 128518 z 2006 label "Continue / stm.log(\"T1.2(effect)\");
+" xyz 228 228 3000 to ref 128902
+  write_horizontally default show_definition default drawing_language default
+end
+transitioncanvas 129286 transition_ref 153350 // T3
+  
+  from ref 128390 z 2001 label "Continue / stm.log(\"T3(effect)\");
+" xyz 439 170 3000 to ref 129158
+  write_horizontally default show_definition default drawing_language default
+end
+transitioncanvas 129542 transition_ref 153478 // T4
+  
+  from ref 129158 z 2001 to ref 129414
+  write_horizontally default show_definition default drawing_language default
+end
+transitioncanvas 129798 transition_ref 153606 // T2
+  decenter_begin 317
+  
+  from ref 128134 z 2001 label "Start" xyz 138 179 3000 to ref 128390
+  write_horizontally default show_definition default drawing_language default
+end
+end

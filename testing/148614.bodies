@@ -11,6 +11,7 @@ stm.log("T2(effect)");    stm._set_currentState(stm._entering009_state._s1_state
 #ifdef VERBOSE_STATE_MACHINE
     std::cout << "DEBUG : current state is now .Entering009.S1" << std::endl;
 #endif
+      stm._entering009_state._s1_state._doentry(stm);
     {
       for(auto s = stm._current_state; s != this && s; s = s->_upper(stm)) s->_doexit(stm);
 #ifdef VERBOSE_STATE_MACHINE

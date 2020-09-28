@@ -187,6 +187,24 @@ return TRUE;
       da->set_isCppVirtual(TRUE);
       
       
+      
+      // add virtual operation _doentry
+      UmlOperation * dn;
+      
+      if (((dn = (UmlOperation *) anystate->getChild(anOperation, "_doentry")) == 0) &&
+	  ((dn = UmlBaseOperation::create(anystate, "_doentry")) == 0)) {
+	UmlCom::trace("Error : cannot create operation _doentry in class '"
+		      + anystate->name() + "'<br>");
+	throw 0;
+      }
+      dn->defaultDef();
+      dn->setComment("performs the 'entry activity'");
+      dn->setType("void", "${type}");
+      if (dn->params().isEmpty())
+	dn->addParam(0, InputOutputDirection, "stm", machine);
+      dn->setParams("${t0} &");
+      dn->set_isCppVirtual(TRUE);
+
       // add virtual operation _doexit
       UmlOperation * de;
       

@@ -3,7 +3,6 @@ class S_State
   return &stm._compoundtransitionexample_state;
 !!!132614.cpp!!!	create(inout stm : CompoundTransitionExample) : void
   {
-    for(auto s = stm._current_state; s != this && s; s = s->_upper(stm)) s->_doexit(stm);
     stm._set_currentState(stm._compoundtransitionexample_state._s_state._s1_state);
 #ifdef VERBOSE_STATE_MACHINE
     std::cout << "DEBUG : current state is now .CompoundTransitionExample.S.S1" << std::endl;

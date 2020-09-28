@@ -22,3 +22,6 @@ stm.log("S1(entry)");
 stm.log("S1(exit)");
 !!!166022.cpp!!!	_upper(inout stm : Entering004) : Entering004::AnyState
   return &stm._entering004_state;
+!!!204422.cpp!!!	create(inout stm : Entering004) : void
+	_doentry(stm);
+	_completion(stm);

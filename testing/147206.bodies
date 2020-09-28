@@ -2,7 +2,6 @@ class S11_State
 !!!169350.cpp!!!	create(inout stm : Entering005) : void
   _doentry(stm);
   {
-    for(auto s = stm._current_state; s != this && s; s = s->_upper(stm)) s->_doexit(stm);
     stm._set_currentState(stm._entering005_state._s1_state._s11_state._s111_state);
 #ifdef VERBOSE_STATE_MACHINE
     std::cout << "DEBUG : current state is now .Entering005.S1.S1.1.S1.1.1" << std::endl;

@@ -159,7 +159,7 @@ class UmlTransition
       // compute common parent and manage exit behavior
       if (tr->target()->kind() != aTerminatePseudoState) {
 
-        if (tr->parent()->kind() != anExitPointPseudoState)
+        if (tr->parent()->kind() != anExitPointPseudoState && tr->parent()->kind() != anInitialPseudoState)
           body += indent + "  for(auto s = stm._current_state; s != this && "
                            "s; s = s->_upper(stm)) s->_doexit(stm);\n";
 

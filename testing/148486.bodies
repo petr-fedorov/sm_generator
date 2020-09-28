@@ -1,7 +1,6 @@
 class Entering009_State
 !!!175878.cpp!!!	create(inout stm : Entering009) : void
   {
-    for(auto s = stm._current_state; s != this && s; s = s->_upper(stm)) s->_doexit(stm);
     stm._set_currentState(stm._entering009_state._waiting_state);
 #ifdef VERBOSE_STATE_MACHINE
     std::cout << "DEBUG : current state is now .Entering009.waiting" << std::endl;

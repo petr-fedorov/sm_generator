@@ -31,7 +31,6 @@ stm.log("xS1");
   return &stm._compoundtransitionexample_state._s_state;
 !!!132486.cpp!!!	create(inout stm : CompoundTransitionExample) : void
   {
-    for(auto s = stm._current_state; s != this && s; s = s->_upper(stm)) s->_doexit(stm);
     stm._set_currentState(stm._compoundtransitionexample_state._s_state._s1_state._s11_state);
 #ifdef VERBOSE_STATE_MACHINE
     std::cout << "DEBUG : current state is now .CompoundTransitionExample.S.S1.S11" << std::endl;

@@ -1,6 +1,6 @@
 format 223
 "testing"
-  revision 7
+  revision 8
   modified_by 6 "petr"
   cpp_root_dir "/tmp/generator_testing/"
 
@@ -810,6 +810,24 @@ ${inlines}
 		key "STM generated" value ""
 		comment " returns the state containing the current"
 	      end
+
+	      operation 204166 "create"
+		force_body_gen cpp_virtual public explicit_return_type "void"
+		nparams 1
+		  param inout name "stm" type class_ref 128006 // CompoundTransitionExample
+		cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} & ${p0}${)}${const}${volatile}${throw}${abstract};
+"
+		cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${t0} & ${p0}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+		
+		
+		
+		
+		ncouples 1
+		key "STM generated" value ""
+		comment " to manage the event create"
+	      end
 	    end
 
 	    operation 128902 "~T1_State"
@@ -885,6 +903,24 @@ ${inlines}
 	      ncouples 1
 	      key "STM generated" value ""
 	      comment " returns the state containing the current"
+	    end
+
+	    operation 204294 "create"
+	      force_body_gen cpp_virtual public explicit_return_type "void"
+	      nparams 1
+	        param inout name "stm" type class_ref 128006 // CompoundTransitionExample
+	      cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} & ${p0}${)}${const}${volatile}${throw}${abstract};
+"
+	      cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${t0} & ${p0}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	      
+	      
+	      
+	      
+	      ncouples 1
+	      key "STM generated" value ""
+	      comment " to manage the event create"
 	    end
 	  end
 
@@ -4538,6 +4574,24 @@ ${inlines}
 	    key "STM generated" value ""
 	    comment " returns the state containing the current"
 	  end
+
+	  operation 204422 "create"
+	    force_body_gen cpp_virtual public explicit_return_type "void"
+	    nparams 1
+	      param inout name "stm" type class_ref 145798 // Entering004
+	    cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} & ${p0}${)}${const}${volatile}${throw}${abstract};
+"
+	    cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${t0} & ${p0}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	    
+	    
+	    
+	    
+	    ncouples 1
+	    key "STM generated" value ""
+	    comment " to manage the event create"
+	  end
 	end
 
 	operation 163462 "~Entering004_State"
@@ -6246,6 +6300,24 @@ ${inlines}
 	    key "STM generated" value ""
 	    comment " returns the state containing the current"
 	  end
+
+	  operation 204550 "create"
+	    force_body_gen cpp_virtual public explicit_return_type "void"
+	    nparams 1
+	      param inout name "stm" type class_ref 148230 // Entering009
+	    cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} & ${p0}${)}${const}${volatile}${throw}${abstract};
+"
+	    cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${t0} & ${p0}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	    
+	    
+	    
+	    
+	    ncouples 1
+	    key "STM generated" value ""
+	    comment " to manage the event create"
+	  end
 	end
 
 	operation 174854 "~Entering009_State"
@@ -7075,6 +7147,24 @@ ${inlines}
 	    ncouples 1
 	    key "STM generated" value ""
 	    comment " returns the state containing the current"
+	  end
+
+	  operation 204678 "create"
+	    force_body_gen cpp_virtual public explicit_return_type "void"
+	    nparams 1
+	      param inout name "stm" type class_ref 148998 // Event018
+	    cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} & ${p0}${)}${const}${volatile}${throw}${abstract};
+"
+	    cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${t0} & ${p0}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	    
+	    
+	    
+	    
+	    ncouples 1
+	    key "STM generated" value ""
+	    comment " to manage the event create"
 	  end
 	end
 

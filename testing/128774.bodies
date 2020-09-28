@@ -6,3 +6,5 @@ class T1_State
 stm.log("eT1");
 !!!131590.cpp!!!	_upper(inout stm : CompoundTransitionExample) : CompoundTransitionExample::AnyState
   return &stm._compoundtransitionexample_state._s_state;
+!!!204294.cpp!!!	create(inout stm : CompoundTransitionExample) : void
+	_doentry(stm);

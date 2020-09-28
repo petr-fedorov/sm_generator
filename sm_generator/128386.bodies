@@ -1,20 +1,25 @@
 class UmlState
 !!!149122.cpp!!!	isLeaf() : bool
-  const Q3PtrVector<UmlItem> ch = children();
-  unsigned index;
-  
-  for (index = 0; index != ch.count(); index += 1) {
-    switch (ch[index]->kind()) {
-    case aState:
-    case aRegion:
-    case anInitialPseudoState:
-      return FALSE;
-    default:
-      break;
-    }
-  }
+const Q3PtrVector<UmlItem> ch = children();
+unsigned index;
 
-  return TRUE;
+for (index = 0; index != ch.count(); index += 1) {
+  switch (ch[index]->kind()) {
+
+  // According to PSSM Entering 004 Test, a composite state without initial
+  // pseudostate should be treated as if it is a simple state
+  // case aState:
+
+  // Regions are not supported by the generator, we just ignore them
+  // case aRegion:
+  case anInitialPseudoState:
+    return FALSE;
+  default:
+    break;
+  }
+}
+
+return TRUE;
 !!!146690.cpp!!!	hasInitial() : void
   if (_has_initial) {
     UmlCom::trace("Error : '" + name() + "' has several 'initial' pseudo state<br>");
@@ -226,6 +231,7 @@ class UmlState
       
       machine->addDestructor();
       
+      UmlCom::trace("... about to generate machine");
       // generate the machine
       generate(machine, anystate, this);
       
@@ -362,6 +368,7 @@ return ("+ _current_state + " != 0);\n";
 
   // generate children
 
+  UmlCom::trace(" ... about to generate children");
   const Q3PtrVector<UmlItem> ch = children();
   
   for (index = 0; index != ch.count(); index += 1)

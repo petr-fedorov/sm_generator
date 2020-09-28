@@ -6,3 +6,5 @@ class S1_State
 stm.log("S1(entry)");
 !!!177030.cpp!!!	_upper(inout stm : Entering009) : Entering009::AnyState
   return &stm._entering009_state;
+!!!204550.cpp!!!	create(inout stm : Entering009) : void
+	_doentry(stm);

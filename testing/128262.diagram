@@ -2,51 +2,51 @@ format 223
 
 statecanvas 128006 state_ref 129030 // Waiting
   
-  xyzwh 282 159 2000 63 41
+  xyzwh 282 159 2006 63 41
 end
 pseudostatecanvas 128134 pseudostate_ref 128646 // initial 
-   xyz 303 57 2000
+   xyz 303 57 2012
 end
 statecanvas 128390 state_ref 129158 // S1
   
-  xyzwh 88 269 2000 461 161
+  xyzwh 88 269 3017 461 161
 end
 statecanvas 128518 state_ref 129286 // S1.1
   
-  xyzwh 190 341 2005 187 77
+  xyzwh 190 341 3022 187 77
 end
 pseudostatecanvas 128646 pseudostate_ref 128774 // initial 
-   xyz 108 366 2005
+   xyz 108 366 3028
 end
 pseudostatecanvas 128902 pseudostate_ref 128902 // exit_point exit
-   xyz 536 368 3005 label_xy 536 387
+   xyz 536 368 3028 label_xy 536 387
 end
 pseudostatecanvas 129158 pseudostate_ref 129030 // final 
-   xyz 767 366 2000
+   xyz 767 366 3011
 end
 transitioncanvas 128262 transition_ref 128774 // T1
   
-  from ref 128134 z 2001 label "T1" xyz 305 107 3000 to ref 128006
+  from ref 128134 z 2013 label "T1" xyz 305 107 2013 to ref 128006
   write_horizontally default show_definition default drawing_language default
 end
 transitioncanvas 128774 transition_ref 128902 // T1.1
   
-  from ref 128646 z 2006 label "T1.1" xyz 145 366 3000 to ref 128518
+  from ref 128646 z 3029 label "T1.1" xyz 145 366 3029 to ref 128518
   write_horizontally default show_definition default drawing_language default
 end
 transitioncanvas 129030 transition_ref 129030 // T1.2
   
-  from ref 128518 z 3006 label "T1.2" xyz 443 368 3006 to ref 128902
+  from ref 128518 z 3029 label "T1.2" xyz 443 368 3029 to ref 128902
   write_horizontally default show_definition default drawing_language default
 end
 transitioncanvas 129286 transition_ref 129158 // T3
   
-  from ref 128902 z 3006 label "T3" xyz 653 368 3006 to ref 129158
+  from ref 128902 z 3029 label "T3" xyz 653 368 3029 to ref 129158
   write_horizontally default show_definition default drawing_language default
 end
 transitioncanvas 129414 transition_ref 129286 // T2
   
-  from ref 128006 z 2001 label "T2" xyz 306 224 3000 to ref 128390
+  from ref 128006 z 3018 label "T2" xyz 306 224 3018 to ref 128390
   write_horizontally default show_definition default drawing_language default
 end
 end

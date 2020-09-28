@@ -6,7 +6,7 @@ class S12_State
 #ifdef VERBOSE_STATE_MACHINE
     std::cout << "DEBUG : current state is now .Event018.S2" << std::endl;
 #endif
-    stm._final();
+      stm._event018_state._s2_state._completion(stm);
     return (bool) 1;
   }
 !!!181766.cpp!!!	create(inout stm : Event018) : void

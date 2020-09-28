@@ -1,6 +1,6 @@
 format 223
 "API USER" // API USER
-  revision 45
+  revision 47
   modified_by 6 "petr"
   // class settings
   
@@ -2967,7 +2967,7 @@ ${members}}
 	  param in name "indent" explicit_type "string"
 	cpp_decl "    ${comment}${static}${virtual}${type} ${name}${(}${t0} * ${p0}, ${t1} * ${p1}, ${t2} * ${p2}, ${t3} & ${p3}, ${t4} ${p4}${)}${const}${volatile}${abstract};
 "
-	cpp_def "${inline}${type} ${class}::${name}${(}${t0} *, ${t1} *, ${t2} *, ${t3} & ${p3}, ${t4} ${p4}${)}${const}${volatile}${staticnl}{
+	cpp_def "${inline}${type} ${class}::${name}${(}${t0} * ${p0}, ${t1} * ${p1}, ${t2} * ${p2}, ${t3} & ${p3}, ${t4} ${p4}${)}${const}${volatile}${staticnl}{
 ${body}}
 "
 	java_def "  ${comment}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${)}${throws}${staticnl}{

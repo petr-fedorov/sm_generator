@@ -8,3 +8,5 @@ class AnyState
   else
     std::cout << "DEBUG : transition sig not expected" << std::endl;
 #endif
+!!!228742.cpp!!!	_completion(inout stm : CompoundTransitionExample) : bool
+return true;

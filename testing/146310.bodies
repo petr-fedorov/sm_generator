@@ -7,7 +7,7 @@ class S1_State
 #ifdef VERBOSE_STATE_MACHINE
     std::cout << "DEBUG : current state is now .Entering004" << std::endl;
 #endif
-    stm._final();
+      stm._final();
     return (bool) 1;
   }
 !!!165766.cpp!!!	_doentry(inout stm : Entering004) : void

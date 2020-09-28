@@ -186,6 +186,7 @@ return TRUE;
       da->setParams("${t0} &");
       da->set_isCppVirtual(TRUE);
       
+      
       // add virtual operation _doexit
       UmlOperation * de;
       
@@ -202,6 +203,25 @@ return TRUE;
 	de->addParam(0, InputOutputDirection, "stm", machine);
       de->setParams("${t0} &");
       de->set_isCppVirtual(TRUE);
+
+      // add virtual operation _completion
+      UmlOperation * cp;
+      
+      if (((cp = (UmlOperation *) anystate->getChild(anOperation, "_completion")) == 0) &&
+	  ((cp = UmlBaseOperation::create(anystate, "_completion")) == 0)) {
+	UmlCom::trace("Error : cannot create operation _completion in class '"
+		      + anystate->name() + "'<br>");
+	throw 0;
+      }
+      cp->defaultDef();
+      cp->setComment("default transition triggered by a completion event, do "
+                     "nothing, i.e. drops the completion event");
+      cp->setType("bool", "${type}");
+      if (cp->params().isEmpty())
+	cp->addParam(0, InputOutputDirection, "stm", machine);
+      cp->setParams("${t0} &");
+      cp->set_isCppVirtual(TRUE);
+	cp->set_CppBody("return true;\n");
 
       // add if needed classes associated to each state, and set flags
       init(machine, "", "", this);
@@ -367,7 +387,6 @@ return ("+ _current_state + " != 0);\n";
 
   // generate children
 
-  UmlCom::trace(" ... about to generate children");
   const Q3PtrVector<UmlItem> ch = children();
   
   for (index = 0; index != ch.count(); index += 1)

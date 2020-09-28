@@ -6,7 +6,7 @@ class S2_State
 #ifdef VERBOSE_STATE_MACHINE
     std::cout << "DEBUG : current state is now .Event016" << std::endl;
 #endif
-    stm._final();
+      stm._final();
     return (bool) 1;
   }
 !!!214790.cpp!!!	create(inout stm : Event016) : void

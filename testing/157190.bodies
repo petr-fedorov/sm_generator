@@ -10,7 +10,7 @@ stm.log("T1.2(effect)");
 #ifdef VERBOSE_STATE_MACHINE
     std::cout << "DEBUG : current state is now .Event016.S1" << std::endl;
 #endif
-    stm._final();
+      stm._event016_state._s1_state._completion(stm);
   }
 !!!214150.cpp!!!	_upper(inout stm : Event016) : Event016::AnyState
   return &stm._event016_state._s1_state;

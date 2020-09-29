@@ -17,5 +17,3 @@ class AnyState
   else
     std::cout << "DEBUG : transition Start not expected" << std::endl;
 #endif
-!!!228870.cpp!!!	_completion(inout stm : Exiting001) : bool
-return true;

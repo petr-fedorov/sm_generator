@@ -56,11 +56,11 @@ class UmlExitPointPseudoState
       throw 0;
     }
     else
-      ch[0]->generate(machine, anystate, state, body, "  ");
+      ch[0]->generate(machine, anystate, state, body, "  ", " ");
   }
 
   ex->set_CppBody(body);
-!!!148738.cpp!!!	generate(inout machine : UmlClass, inout anystate : UmlClass, inout state : UmlState, inout body : string, in indent : string) : void
+!!!148738.cpp!!!	generate(inout machine : UmlClass, inout anystate : UmlClass, inout state : UmlState, inout body : string, in indent : string, in trigger : string) : void
   // generate a call to _exit<n>() because it is a priori shared
   if (_oper.isEmpty()) {
     char sn[24];

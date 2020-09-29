@@ -1,6 +1,6 @@
 format 223
 "API USER" // API USER
-  revision 49
+  revision 51
   modified_by 6 "petr"
   // class settings
   
@@ -1215,15 +1215,16 @@ ${body}}
 
       operation 148098 "generate"
 	cpp_virtual public explicit_return_type "void"
-	nparams 5
+	nparams 6
 	  param inout name "machine" type class_ref 7169 // UmlClass
 	  param inout name "anystate" type class_ref 7169 // UmlClass
 	  param inout name "state" type class_ref 128386 // UmlState
 	  param inout name "body" explicit_type "string"
 	  param in name "indent" explicit_type "string"
-	cpp_decl "    ${comment}${static}${virtual}${type} ${name}${(}${t0} * ${p0}, ${t1} * ${p1}, ${t2} * ${p2}, ${t3} & ${p3}, ${t4} ${p4}${)}${const}${volatile}${abstract};
+	  param in name "trigger" explicit_type "string"
+	cpp_decl "    ${comment}${static}${virtual}${type} ${name}${(}${t0} * ${p0}, ${t1} * ${p1}, ${t2} * ${p2}, ${t3} & ${p3}, ${t4} ${p4}, ${t5} ${p5}${v5}${)}${const}${volatile}${abstract};
 "
-	cpp_def "${inline}${type} ${class}::${name}${(}${t0} *, ${t1} *, ${t2} *, ${t3} &, ${t4}${)}${const}${volatile}${staticnl}{
+	cpp_def "${inline}${type} ${class}::${name}${(}${t0} *, ${t1} *, ${t2} *, ${t3} &, ${t4}, ${t5} ${p5}${)}${const}${volatile}${staticnl}{
 ${body}}
 "
 	java_def "  ${comment}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${)}${throws}${staticnl}{
@@ -2523,16 +2524,17 @@ ${body}}
       end
 
       operation 148994 "generate"
-	cpp_virtual public explicit_return_type "void"
-	nparams 5
+	cpp_virtual cpp_override public explicit_return_type "void"
+	nparams 6
 	  param inout name "machine" type class_ref 7169 // UmlClass
 	  param inout name "anystate" type class_ref 7169 // UmlClass
 	  param inout name "state" type class_ref 128386 // UmlState
 	  param inout name "body" explicit_type "string"
 	  param in name "indent" explicit_type "string"
-	cpp_decl "    ${comment}${static}${virtual}${type} ${name}${(}${t0} * ${p0}, ${t1} * ${p1}, ${t2} * ${p2}, ${t3} & ${p3}, ${t4} ${p4}${)}${const}${volatile}${abstract};
+	  param in name "trigger" explicit_type "string"
+	cpp_decl "    ${comment}${static}${virtual}${type} ${name}${(}${t0} * ${p0}, ${t1} * ${p1}, ${t2} * ${p2}, ${t3} & ${p3}, ${t4} ${p4}, ${t5} ${p5}${v5}${)}${const}${volatile}${abstract};
 "
-	cpp_def "${inline}${type} ${class}::${name}${(}${t0} * ${p0}, ${t1} * ${p1}, ${t2} * ${p2}, ${t3} & ${p3}, ${t4} ${p4}${)}${const}${volatile}${staticnl}{
+	cpp_def "${inline}${type} ${class}::${name}${(}${t0} * ${p0}, ${t1} * ${p1}, ${t2} * ${p2}, ${t3} & ${p3}, ${t4} ${p4}, ${t5} ${p5}${)}${const}${volatile}${staticnl}{
 ${body}}
 "
 	java_def "  ${comment}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${)}${throws}${staticnl}{
@@ -2547,17 +2549,18 @@ ${body}}
 
       operation 150658 "generate"
 	class_operation public explicit_return_type "void"
-	nparams 7
+	nparams 8
 	  param in name "trs" type class_ref 129026 // UmlTransition
 	  param inout name "machine" type class_ref 7169 // UmlClass
 	  param inout name "anystate" type class_ref 7169 // UmlClass
 	  param inout name "state" type class_ref 128386 // UmlState
 	  param inout name "body" explicit_type "string"
 	  param in name "indent" explicit_type "string"
+	  param in name "trigger" explicit_type "string"
 	  param in name "completion" explicit_type "bool"
-	cpp_decl "    ${comment}${static}${virtual}${type} ${name}${(}Q3PtrList<${t0}> ${p0}, ${t1} * ${p1}, ${t2} * ${p2}, ${t3} * ${p3}, ${t4} & ${p4}, ${t5} ${p5}, ${t6} ${p6}${)}${const}${volatile}${abstract};
+	cpp_decl "    ${comment}${static}${virtual}${type} ${name}${(}Q3PtrList<${t0}> ${p0}, ${t1} * ${p1}, ${t2} * ${p2}, ${t3} * ${p3}, ${t4} & ${p4}, ${t5} ${p5}, ${t6} ${p6}${v6}, ${t7} ${p7}${)}${const}${volatile}${abstract};
 "
-	cpp_def "${inline}${type} ${class}::${name}${(}Q3PtrList<${t0}> ${p0}, ${t1} * ${p1}, ${t2} * ${p2}, ${t3} * ${p3}, ${t4} & ${p4}, ${t5} ${p5}, ${t6} ${p6}${)}${const}${volatile}${staticnl}{
+	cpp_def "${inline}${type} ${class}::${name}${(}Q3PtrList<${t0}> ${p0}, ${t1} * ${p1}, ${t2} * ${p2}, ${t3} * ${p3}, ${t4} & ${p4}, ${t5} ${p5}, ${t6} ${p6}, ${t7} ${p7}${)}${const}${volatile}${staticnl}{
 ${body}}
 "
 	java_def "  ${comment}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${)}${throws}${staticnl}{
@@ -2713,16 +2716,17 @@ ${members}}
       end
 
       operation 150274 "generate"
-	cpp_virtual public explicit_return_type "void"
-	nparams 5
+	cpp_virtual cpp_override public explicit_return_type "void"
+	nparams 6
 	  param inout name "machine" type class_ref 7169 // UmlClass
 	  param inout name "anystate" type class_ref 7169 // UmlClass
 	  param inout name "state" type class_ref 128386 // UmlState
 	  param inout name "body" explicit_type "string"
 	  param in name "indent" explicit_type "string"
-	cpp_decl "    ${comment}${static}${virtual}${type} ${name}${(}${t0} * ${p0}, ${t1} * ${p1}, ${t2} * ${p2}, ${t3} & ${p3}, ${t4} ${p4}${)}${const}${volatile}${abstract};
+	  param in name "trigger" explicit_type "string"
+	cpp_decl "    ${comment}${static}${virtual}${type} ${name}${(}${t0} * ${p0}, ${t1} * ${p1}, ${t2} * ${p2}, ${t3} & ${p3}, ${t4} ${p4}, ${t5} ${p5}${v5}${)}${const}${volatile}${abstract};
 "
-	cpp_def "${inline}${type} ${class}::${name}${(}${t0} * ${p0}, ${t1} * ${p1}, ${t2} * ${p2}, ${t3} & ${p3}, ${t4} ${p4}${)}${const}${volatile}${staticnl}{
+	cpp_def "${inline}${type} ${class}::${name}${(}${t0} * ${p0}, ${t1} * ${p1}, ${t2} * ${p2}, ${t3} & ${p3}, ${t4} ${p4}, ${t5} ${p5}${)}${const}${volatile}${staticnl}{
 ${body}}
 "
 	java_def "  ${comment}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${)}${throws}${staticnl}{
@@ -2894,16 +2898,17 @@ ${members}}
       end
 
       operation 151042 "generate"
-	cpp_virtual public explicit_return_type "void"
-	nparams 5
+	cpp_virtual cpp_override public explicit_return_type "void"
+	nparams 6
 	  param inout name "machine" type class_ref 7169 // UmlClass
 	  param inout name "anystate" type class_ref 7169 // UmlClass
 	  param inout name "state" type class_ref 128386 // UmlState
 	  param inout name "body" explicit_type "string"
 	  param in name "indent" explicit_type "string"
-	cpp_decl "    ${comment}${static}${virtual}${type} ${name}${(}${t0} * ${p0}, ${t1} * ${p1}, ${t2} * ${p2}, ${t3} & ${p3}, ${t4} ${p4}${)}${const}${volatile}${abstract};
+	  param in name "trigger" explicit_type "string"
+	cpp_decl "    ${comment}${static}${virtual}${type} ${name}${(}${t0} * ${p0}, ${t1} * ${p1}, ${t2} * ${p2}, ${t3} & ${p3}, ${t4} ${p4}, ${t5} ${p5}${v5}${)}${const}${volatile}${abstract};
 "
-	cpp_def "${inline}${type} ${class}::${name}${(}${t0} * ${p0}, ${t1} * ${p1}, ${t2} * ${p2}, ${t3} & ${p3}, ${t4} ${p4}${)}${const}${volatile}${staticnl}{
+	cpp_def "${inline}${type} ${class}::${name}${(}${t0} * ${p0}, ${t1} * ${p1}, ${t2} * ${p2}, ${t3} & ${p3}, ${t4} ${p4}, ${t5} ${p5}${)}${const}${volatile}${staticnl}{
 ${body}}
 "
 	java_def "  ${comment}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${)}${throws}${staticnl}{
@@ -2958,16 +2963,17 @@ ${members}}
       end
 
       operation 148354 "generate"
-	cpp_virtual public explicit_return_type "void"
-	nparams 5
+	cpp_virtual cpp_override public explicit_return_type "void"
+	nparams 6
 	  param inout name "machine" type class_ref 7169 // UmlClass
 	  param inout name "anystate" type class_ref 7169 // UmlClass
 	  param inout name "state" type class_ref 128386 // UmlState
 	  param inout name "body" explicit_type "string"
 	  param in name "indent" explicit_type "string"
-	cpp_decl "    ${comment}${static}${virtual}${type} ${name}${(}${t0} * ${p0}, ${t1} * ${p1}, ${t2} * ${p2}, ${t3} & ${p3}, ${t4} ${p4}${)}${const}${volatile}${abstract};
+	  param in name "trigger" explicit_type "string"
+	cpp_decl "    ${comment}${static}${virtual}${type} ${name}${(}${t0} * ${p0}, ${t1} * ${p1}, ${t2} * ${p2}, ${t3} & ${p3}, ${t4} ${p4}, ${t5} ${p5}${v5}${)}${const}${volatile}${abstract};
 "
-	cpp_def "${inline}${type} ${class}::${name}${(}${t0} * ${p0}, ${t1} * ${p1}, ${t2} * ${p2}, ${t3} & ${p3}, ${t4} ${p4}${)}${const}${volatile}${staticnl}{
+	cpp_def "${inline}${type} ${class}::${name}${(}${t0} * ${p0}, ${t1} * ${p1}, ${t2} * ${p2}, ${t3} & ${p3}, ${t4} ${p4}, ${t5} ${p5}${)}${const}${volatile}${staticnl}{
 ${body}}
 "
 	java_def "  ${comment}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${)}${throws}${staticnl}{
@@ -3024,16 +3030,17 @@ ${members}}
       end
 
       operation 151170 "generate"
-	cpp_virtual public explicit_return_type "void"
-	nparams 5
+	cpp_virtual cpp_override public explicit_return_type "void"
+	nparams 6
 	  param inout name "machine" type class_ref 7169 // UmlClass
 	  param inout name "anystate" type class_ref 7169 // UmlClass
 	  param inout name "state" type class_ref 128386 // UmlState
 	  param inout name "body" explicit_type "string"
 	  param in name "indent" explicit_type "string"
-	cpp_decl "    ${comment}${static}${virtual}${type} ${name}${(}${t0} * ${p0}, ${t1} * ${p1}, ${t2} * ${p2}, ${t3} & ${p3}, ${t4} ${p4}${)}${const}${volatile}${abstract};
+	  param in name "trigger" explicit_type "string"
+	cpp_decl "    ${comment}${static}${virtual}${type} ${name}${(}${t0} * ${p0}, ${t1} * ${p1}, ${t2} * ${p2}, ${t3} & ${p3}, ${t4} ${p4}, ${t5} ${p5}${v5}${)}${const}${volatile}${abstract};
 "
-	cpp_def "${inline}${type} ${class}::${name}${(}${t0} *, ${t1} *, ${t2} *, ${t3} & ${p3}, ${t4} ${p4}${)}${const}${volatile}${staticnl}{
+	cpp_def "${inline}${type} ${class}::${name}${(}${t0} *, ${t1} *, ${t2} *, ${t3} & ${p3}, ${t4} ${p4}, ${t5} ${p5}${)}${const}${volatile}${staticnl}{
 ${body}}
 "
 	java_def "  ${comment}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${)}${throws}${staticnl}{
@@ -3130,16 +3137,17 @@ ${body}}
       end
 
       operation 148738 "generate"
-	cpp_virtual public explicit_return_type "void"
-	nparams 5
+	cpp_virtual cpp_override public explicit_return_type "void"
+	nparams 6
 	  param inout name "machine" type class_ref 7169 // UmlClass
 	  param inout name "anystate" type class_ref 7169 // UmlClass
 	  param inout name "state" type class_ref 128386 // UmlState
 	  param inout name "body" explicit_type "string"
 	  param in name "indent" explicit_type "string"
-	cpp_decl "    ${comment}${static}${virtual}${type} ${name}${(}${t0} * ${p0}, ${t1} * ${p1}, ${t2} * ${p2}, ${t3} & ${p3}, ${t4} ${p4}${)}${const}${volatile}${abstract};
+	  param in name "trigger" explicit_type "string"
+	cpp_decl "    ${comment}${static}${virtual}${type} ${name}${(}${t0} * ${p0}, ${t1} * ${p1}, ${t2} * ${p2}, ${t3} & ${p3}, ${t4} ${p4}, ${t5} ${p5}${v5}${)}${const}${volatile}${abstract};
 "
-	cpp_def "${inline}${type} ${class}::${name}${(}${t0} *, ${t1} *, ${t2} *, ${t3} & ${p3}, ${t4} ${p4}${)}${const}${volatile}${staticnl}{
+	cpp_def "${inline}${type} ${class}::${name}${(}${t0} *, ${t1} *, ${t2} *, ${t3} & ${p3}, ${t4} ${p4}, ${t5} ${p5}${)}${const}${volatile}${staticnl}{
 ${body}}
 "
 	java_def "  ${comment}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${)}${throws}${staticnl}{
@@ -3333,16 +3341,17 @@ ${body}}
       end
 
       operation 150530 "generate"
-	cpp_virtual public explicit_return_type "void"
-	nparams 5
+	cpp_virtual cpp_override public explicit_return_type "void"
+	nparams 6
 	  param inout name "machine" type class_ref 7169 // UmlClass
 	  param inout name "anystate" type class_ref 7169 // UmlClass
 	  param inout name "state" type class_ref 128386 // UmlState
 	  param inout name "body" explicit_type "string"
 	  param in name "indent" explicit_type "string"
-	cpp_decl "    ${comment}${static}${virtual}${type} ${name}${(}${t0} * ${p0}, ${t1} * ${p1}, ${t2} * ${p2}, ${t3} & ${p3}, ${t4} ${p4}${)}${const}${volatile}${abstract};
+	  param in name "trigger" explicit_type "string"
+	cpp_decl "    ${comment}${static}${virtual}${type} ${name}${(}${t0} * ${p0}, ${t1} * ${p1}, ${t2} * ${p2}, ${t3} & ${p3}, ${t4} ${p4}, ${t5} ${p5}${v5}${)}${const}${volatile}${abstract};
 "
-	cpp_def "${inline}${type} ${class}::${name}${(}${t0} *, ${t1} *, ${t2} * ${p2}, ${t3} & ${p3}, ${t4} ${p4}${)}${const}${volatile}${staticnl}{
+	cpp_def "${inline}${type} ${class}::${name}${(}${t0} *, ${t1} *, ${t2} * ${p2}, ${t3} & ${p3}, ${t4} ${p4}, ${t5} ${p5}${)}${const}${volatile}${staticnl}{
 ${body}}
 "
 	java_def "  ${comment}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${)}${throws}${staticnl}{
@@ -3429,16 +3438,17 @@ ${members}}
       end
 
       operation 150914 "generate"
-	cpp_virtual public explicit_return_type "void"
-	nparams 5
+	cpp_virtual cpp_override public explicit_return_type "void"
+	nparams 6
 	  param inout name "machine" type class_ref 7169 // UmlClass
 	  param inout name "anystate" type class_ref 7169 // UmlClass
 	  param inout name "state" type class_ref 128386 // UmlState
 	  param inout name "body" explicit_type "string"
 	  param in name "indent" explicit_type "string"
-	cpp_decl "    ${comment}${static}${virtual}${type} ${name}${(}${t0} * ${p0}, ${t1} * ${p1}, ${t2} * ${p2}, ${t3} & ${p3}, ${t4} ${p4}${)}${const}${volatile}${abstract};
+	  param in name "trigger" explicit_type "string"
+	cpp_decl "    ${comment}${static}${virtual}${type} ${name}${(}${t0} * ${p0}, ${t1} * ${p1}, ${t2} * ${p2}, ${t3} & ${p3}, ${t4} ${p4}, ${t5} ${p5}${v5}${)}${const}${volatile}${abstract};
 "
-	cpp_def "${inline}${type} ${class}::${name}${(}${t0} * ${p0}, ${t1} * ${p1}, ${t2} * ${p2}, ${t3} & ${p3}, ${t4} ${p4}${)}${const}${volatile}${staticnl}{
+	cpp_def "${inline}${type} ${class}::${name}${(}${t0} * ${p0}, ${t1} * ${p1}, ${t2} * ${p2}, ${t3} & ${p3}, ${t4} ${p4}, ${t5} ${p5}${)}${const}${volatile}${staticnl}{
 ${body}}
 "
 	java_def "  ${comment}${visibility}${final}${static}${abstract}${synchronized}${type} ${name}${(}${)}${throws}${staticnl}{

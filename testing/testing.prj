@@ -1,6 +1,6 @@
 format 223
 "testing"
-  revision 15
+  revision 17
   modified_by 6 "petr"
   cpp_root_dir "/tmp/generator_testing/"
 
@@ -351,24 +351,6 @@ ${inlines}
 	  ncouples 1
 	  key "STM generated" value ""
 	  comment " performs the 'exit activity'"
-	end
-
-	operation 228742 "_completion"
-	  force_body_gen cpp_virtual public explicit_return_type "bool"
-	  nparams 1
-	    param inout name "stm" type class_ref 128006 // CompoundTransitionExample
-	  cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} &${)}${const}${volatile}${throw}${abstract};
-"
-	  cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${t0} &${)}${const}${volatile}${throw}${staticnl}{
-  ${body}}
-"
-	  
-	  
-	  
-	  
-	  ncouples 1
-	  key "STM generated" value ""
-	  comment " default transition triggered by a completion event, do nothing, i.e. drops the completion event"
 	end
 
 	operation 242950 "_doentry"
@@ -1577,24 +1559,6 @@ ${inlines}
 	  comment " performs the 'exit activity'"
 	end
 
-	operation 228870 "_completion"
-	  force_body_gen cpp_virtual public explicit_return_type "bool"
-	  nparams 1
-	    param inout name "stm" type class_ref 136454 // Exiting001
-	  cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} &${)}${const}${volatile}${throw}${abstract};
-"
-	  cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${t0} &${)}${const}${volatile}${throw}${staticnl}{
-  ${body}}
-"
-	  
-	  
-	  
-	  
-	  ncouples 1
-	  key "STM generated" value ""
-	  comment " default transition triggered by a completion event, do nothing, i.e. drops the completion event"
-	end
-
 	operation 243078 "_doentry"
 	  force_body_gen cpp_virtual public explicit_return_type "void"
 	  nparams 1
@@ -2541,24 +2505,6 @@ ${inlines}
 	  comment " performs the 'exit activity'"
 	end
 
-	operation 228998 "_completion"
-	  force_body_gen cpp_virtual public explicit_return_type "bool"
-	  nparams 1
-	    param inout name "stm" type class_ref 129286 // Exiting004
-	  cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} &${)}${const}${volatile}${throw}${abstract};
-"
-	  cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${t0} &${)}${const}${volatile}${throw}${staticnl}{
-  ${body}}
-"
-	  
-	  
-	  
-	  
-	  ncouples 1
-	  key "STM generated" value ""
-	  comment " default transition triggered by a completion event, do nothing, i.e. drops the completion event"
-	end
-
 	operation 243206 "_doentry"
 	  force_body_gen cpp_virtual public explicit_return_type "void"
 	  nparams 1
@@ -3412,24 +3358,6 @@ ${inlines}
 	  ncouples 1
 	  key "STM generated" value ""
 	  comment " performs the 'exit activity'"
-	end
-
-	operation 229126 "_completion"
-	  force_body_gen cpp_virtual public explicit_return_type "bool"
-	  nparams 1
-	    param inout name "stm" type class_ref 144902 // Exit001
-	  cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} &${)}${const}${volatile}${throw}${abstract};
-"
-	  cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${t0} &${)}${const}${volatile}${throw}${staticnl}{
-  ${body}}
-"
-	  
-	  
-	  
-	  
-	  ncouples 1
-	  key "STM generated" value ""
-	  comment " default transition triggered by a completion event, do nothing, i.e. drops the completion event"
 	end
 
 	operation 243334 "_doentry"
@@ -4387,24 +4315,6 @@ ${inlines}
 	  comment " performs the 'exit activity'"
 	end
 
-	operation 229254 "_completion"
-	  force_body_gen cpp_virtual public explicit_return_type "bool"
-	  nparams 1
-	    param inout name "stm" type class_ref 145798 // Entering004
-	  cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} &${)}${const}${volatile}${throw}${abstract};
-"
-	  cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${t0} &${)}${const}${volatile}${throw}${staticnl}{
-  ${body}}
-"
-	  
-	  
-	  
-	  
-	  ncouples 1
-	  key "STM generated" value ""
-	  comment " default transition triggered by a completion event, do nothing, i.e. drops the completion event"
-	end
-
 	operation 243462 "_doentry"
 	  force_body_gen cpp_virtual public explicit_return_type "void"
 	  nparams 1
@@ -5264,24 +5174,6 @@ ${inlines}
 	  ncouples 1
 	  key "STM generated" value ""
 	  comment " performs the 'exit activity'"
-	end
-
-	operation 228614 "_completion"
-	  force_body_gen cpp_virtual public explicit_return_type "bool"
-	  nparams 1
-	    param inout name "stm" type class_ref 146566 // Entering005
-	  cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} &${)}${const}${volatile}${throw}${abstract};
-"
-	  cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${t0} &${)}${const}${volatile}${throw}${staticnl}{
-  ${body}}
-"
-	  
-	  
-	  
-	  
-	  ncouples 1
-	  key "STM generated" value ""
-	  comment " default transition triggered by a completion event, do nothing, i.e. drops the completion event"
 	end
 
 	operation 243590 "_doentry"
@@ -6220,24 +6112,6 @@ ${inlines}
 	  comment " performs the 'exit activity'"
 	end
 
-	operation 229382 "_completion"
-	  force_body_gen cpp_virtual public explicit_return_type "bool"
-	  nparams 1
-	    param inout name "stm" type class_ref 148230 // Entering009
-	  cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} &${)}${const}${volatile}${throw}${abstract};
-"
-	  cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${t0} &${)}${const}${volatile}${throw}${staticnl}{
-  ${body}}
-"
-	  
-	  
-	  
-	  
-	  ncouples 1
-	  key "STM generated" value ""
-	  comment " default transition triggered by a completion event, do nothing, i.e. drops the completion event"
-	end
-
 	operation 242822 "_doentry"
 	  force_body_gen cpp_virtual public explicit_return_type "void"
 	  nparams 1
@@ -6926,6 +6800,7 @@ ${inlines}
 "
 	  external 
 	end
+
       end
 
       state 153222 "S2"
@@ -6937,6 +6812,7 @@ ${inlines}
 
       pseudostate 152070 final ""
       end
+
     end
 
     class 156550 "Event016"
@@ -7089,24 +6965,6 @@ ${inlines}
 	  ncouples 1
 	  key "STM generated" value ""
 	  comment " performs the 'exit activity'"
-	end
-
-	operation 229510 "_completion"
-	  force_body_gen cpp_virtual public explicit_return_type "bool"
-	  nparams 1
-	    param inout name "stm" type class_ref 156550 // Event016
-	  cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} &${)}${const}${volatile}${throw}${abstract};
-"
-	  cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${t0} &${)}${const}${volatile}${throw}${staticnl}{
-  ${body}}
-"
-	  
-	  
-	  
-	  
-	  ncouples 1
-	  key "STM generated" value ""
-	  comment " default transition triggered by a completion event, do nothing, i.e. drops the completion event"
 	end
 
 	operation 243718 "_doentry"
@@ -7500,6 +7358,7 @@ ${inlines}
 	    key "STM generated" value ""
 	    comment " returns the state containing the current"
 	  end
+
 	end
 
 	operation 211974 "~Event016_State"
@@ -8056,24 +7915,6 @@ ${inlines}
 	  ncouples 1
 	  key "STM generated" value ""
 	  comment " performs the 'exit activity'"
-	end
-
-	operation 229638 "_completion"
-	  force_body_gen cpp_virtual public explicit_return_type "bool"
-	  nparams 1
-	    param inout name "stm" type class_ref 148998 // Event018
-	  cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} &${)}${const}${volatile}${throw}${abstract};
-"
-	  cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${t0} &${)}${const}${volatile}${throw}${staticnl}{
-  ${body}}
-"
-	  
-	  
-	  
-	  
-	  ncouples 1
-	  key "STM generated" value ""
-	  comment " default transition triggered by a completion event, do nothing, i.e. drops the completion event"
 	end
 
 	operation 243846 "_doentry"

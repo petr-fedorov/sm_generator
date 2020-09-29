@@ -106,10 +106,10 @@ class UmlTransition
     body += "  if (_completion(stm)) return;\n";
     
   UmlTransition::generate(trs, machine, anystate, state,
-			  body, "  ", completion);
+			  body, "  ", s, completion);
   
   trg->set_CppBody(body);
-!!!148994.cpp!!!	generate(inout machine : UmlClass, inout anystate : UmlClass, inout state : UmlState, inout body : string, in indent : string) : void
+!!!148994.cpp!!!	generate(inout machine : UmlClass, inout anystate : UmlClass, inout state : UmlState, inout body : string, in indent : string, in trigger : string) : void
   if (!cppTrigger().isEmpty()) {
     UmlCom::trace("Error : transition from a pseudo state can't have trigger<br>");
     throw 0;
@@ -118,8 +118,8 @@ class UmlTransition
   Q3PtrList<UmlTransition> l;
   
   l.append(this);
-  generate(l, machine, anystate, state, body, indent, FALSE);
-!!!150658.cpp!!!	generate(in trs : UmlTransition, inout machine : UmlClass, inout anystate : UmlClass, inout state : UmlState, inout body : string, in indent : string, in completion : bool) : void
+  generate(l, machine, anystate, state, body, indent, trigger, FALSE);
+!!!150658.cpp!!!	generate(in trs : UmlTransition, inout machine : UmlClass, inout anystate : UmlClass, inout state : UmlState, inout body : string, in indent : string, in trigger : string, in completion : bool) : void
   UmlTransition * tr;
   bool guard = FALSE;
   
@@ -238,7 +238,7 @@ class UmlTransition
 	  + ((UmlState *) tg)->path() + ".create(stm);\n";
     }
     else
-      tr->target()->generate(machine, anystate, ((UmlState *) tg), body, indent + "  ");
+      tr->target()->generate(machine, anystate, ((UmlState *) tg), body, indent + "  ", trigger);
     
     if (completion)
       body += indent + "  return (bool) 1;\n";

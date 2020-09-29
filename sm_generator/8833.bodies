@@ -34,8 +34,34 @@ class UmlItem
       return r;
   }
 
+!!!211970.cpp!!!	realName(in s : string, in decl : string) : string
+  int pos = decl.find("${name}");
+  
+  if (pos == -1)
+    return s;
+  
+  int start = pos;
+  QChar c;
+  
+  while ((start != 0) && 
+	 (((c = decl[start - 1]).isLetterOrNumber()) ||
+	  (c == '_')))
+    start -= 1;
+  
+  int len = s.length();
+  int sup = pos + 7;
+  
+  while ((sup != len) &&
+	 (((c = decl[sup]).isLetterOrNumber()) ||
+	  (c == '_')))
+    sup += 1;
+  
+  return decl.mid(start, pos - start) + s + decl.mid(pos + 7, sup - pos - 7);
 !!!144130.cpp!!!	generate() : void
   UmlCom::trace("Error : must be applied on a state machine<br>");
+!!!148098.cpp!!!	generate(inout machine : UmlClass, inout anystate : UmlClass, inout state : UmlState, inout body : string, in indent : string, in trigger : string) : void
+UmlCom::trace("Error : unexpected call of UmlItem::generate()");
+throw 0;
 !!!193666.cpp!!!	setUseless() : void
  QByteArray dummy;
  
@@ -60,26 +86,3 @@ class UmlItem
     for (unsigned index = v.count(); index != 0; index -= 1)
       v[index - 1]->deleteUseless();
   }
-!!!211970.cpp!!!	realName(in s : string, in decl : string) : string
-  int pos = decl.find("${name}");
-  
-  if (pos == -1)
-    return s;
-  
-  int start = pos;
-  QChar c;
-  
-  while ((start != 0) && 
-	 (((c = decl[start - 1]).isLetterOrNumber()) ||
-	  (c == '_')))
-    start -= 1;
-  
-  int len = s.length();
-  int sup = pos + 7;
-  
-  while ((sup != len) &&
-	 (((c = decl[sup]).isLetterOrNumber()) ||
-	  (c == '_')))
-    sup += 1;
-  
-  return decl.mid(start, pos - start) + s + decl.mid(pos + 7, sup - pos - 7);

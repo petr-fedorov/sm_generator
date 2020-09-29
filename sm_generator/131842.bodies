@@ -34,10 +34,10 @@ class UmlJunctionPseudoState
       // theo mandatory
       trs.append((UmlTransition *) ch[index]);
     
-  UmlTransition::generate(trs, machine, anystate, state, body, "  ", FALSE);
+  UmlTransition::generate(trs, machine, anystate, state, body, "  "," ", FALSE);
   
   junction->set_CppBody(body);
-!!!150530.cpp!!!	generate(inout machine : UmlClass, inout anystate : UmlClass, inout state : UmlState, inout body : string, in indent : string) : void
+!!!150530.cpp!!!	generate(inout machine : UmlClass, inout anystate : UmlClass, inout state : UmlState, inout body : string, in indent : string, in trigger : string) : void
   if (_oper.isEmpty()) {
     char sn[24];
     

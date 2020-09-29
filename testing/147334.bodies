@@ -6,7 +6,6 @@ class S111_State
 #ifdef VERBOSE_STATE_MACHINE
     std::cout << "DEBUG : current state is now .Entering005.S1.S1.1" << std::endl;
 #endif
-      stm._entering005_state._s1_state._s11_state._completion(stm);
     return (bool) 1;
   }
 !!!168966.cpp!!!	create(inout stm : Entering005) : void

@@ -1,11 +1,28 @@
 class UmlFinalState
-!!!148354.cpp!!!	generate(inout machine : UmlClass, inout anystate : UmlClass, inout state : UmlState, inout body : string, in indent : string) : void
+!!!148354.cpp!!!	generate(inout machine : UmlClass, inout anystate : UmlClass, inout state : UmlState, inout body : string, in indent : string, in trigger : string) : void
 if (parent()->kind() == aState) {
   if (parent()->stereotype() == "machine")
     body += indent + "  stm._final();\n";
-  else
-    body += indent + "  stm" + static_cast<UmlState *>(parent())->path() +
-            "._completion(stm);\n";
+  else {
+    auto ch = parent()->children();
+    bool hasCompletion = false;
+    bool hasTrigger = false;
+    for (decltype(ch.count()) i = 0; i != ch.count(); ++i) {
+      if (ch[i]->kind() == aTransition) {
+        auto trg = static_cast<UmlTransition *>(ch[i])->triggerName();
+        if (trg == "_completion")
+          hasCompletion = true;
+        if (trg == trigger)
+          hasTrigger = true;
+      }
+    }
+    if (hasCompletion)
+      body += indent + "  stm" + static_cast<UmlState *>(parent())->path() +
+              "._completion(stm);\n";
+    else if (hasTrigger)
+      body += indent + "  stm" + static_cast<UmlState *>(parent())->path() +
+              "." + trigger + "(stm);\n";
+  }
 } else {
   UmlCom::trace("Error : a parent of FinalState is not a state");
   throw 0;

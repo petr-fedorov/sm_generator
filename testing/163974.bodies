@@ -1,0 +1,28 @@
+class AnyState
+!!!251910.cpp!!!	Start(inout stm : Transition010) : void
+  AnyState * st = _upper(stm);
+
+  if (st != 0)
+    st->Start(stm);
+#ifdef VERBOSE_STATE_MACHINE
+  else
+    std::cout << "DEBUG : transition Start not expected" << std::endl;
+#endif
+!!!252550.cpp!!!	Continue(inout stm : Transition010) : void
+  AnyState * st = _upper(stm);
+
+  if (st != 0)
+    st->Continue(stm);
+#ifdef VERBOSE_STATE_MACHINE
+  else
+    std::cout << "DEBUG : transition Continue not expected" << std::endl;
+#endif
+!!!252934.cpp!!!	AnotherSignal(inout stm : Transition010) : void
+  AnyState * st = _upper(stm);
+
+  if (st != 0)
+    st->AnotherSignal(stm);
+#ifdef VERBOSE_STATE_MACHINE
+  else
+    std::cout << "DEBUG : transition AnotherSignal not expected" << std::endl;
+#endif

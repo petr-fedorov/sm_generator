@@ -1,0 +1,18 @@
+class waiting_State
+!!!252038.cpp!!!	Start(inout stm : Transition010) : void
+  {
+    for(auto s = stm._current_state; s != this && s; s = s->_upper(stm)) s->_doexit(stm);
+    stm._transition010_state._waiting_state._doexit(stm);
+    stm._set_currentState(stm._transition010_state._s1_state);
+#ifdef VERBOSE_STATE_MACHINE
+    std::cout << "DEBUG : current state is now .Transition010.S1" << std::endl;
+#endif
+    stm._transition010_state._s1_state.create(stm);
+  }
+!!!252166.cpp!!!	_doexit(inout stm : Transition010) : void
+#ifdef VERBOSE_STATE_MACHINE
+  std::cout << "DEBUG : execute exit behavior of .Transition010.waiting" << std::endl;
+#endif
+stm.log("waiting(exit)");
+!!!252294.cpp!!!	_upper(inout stm : Transition010) : Transition010::AnyState
+  return &stm._transition010_state;

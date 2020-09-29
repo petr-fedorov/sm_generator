@@ -1,0 +1,64 @@
+format 223
+
+pseudostatecanvas 128006 pseudostate_ref 159366 // initial 
+   xyz 80 77 2000
+end
+statecanvas 128134 state_ref 160902 // wait
+  
+  xyzwh 169 80 2000 43 41
+end
+statecanvas 128390 state_ref 161030 // S1
+  
+  xyzwh 400 85 2000 421 367
+end
+pseudostatecanvas 128518 pseudostate_ref 159494 // entry_point entry
+   xyz 391 172 3005 label_xy 385 195
+end
+statecanvas 129414 state_ref 161158 // S1.1
+  
+  xyzwh 558 251 2005 205 93
+end
+pseudostatecanvas 129542 pseudostate_ref 159622 // initial 
+   xyz 652 174 2005
+end
+pseudostatecanvas 129798 pseudostate_ref 159750 // final 
+   xyz 648 418 2005
+end
+pseudostatecanvas 130054 pseudostate_ref 159878 // final 
+   xyz 185 394 2000
+end
+transitioncanvas 128262 transition_ref 161542 // T1
+  decenter_end 317
+  
+  from ref 128006 z 2001 to ref 128134
+  write_horizontally default show_definition default drawing_language default
+end
+transitioncanvas 128646 transition_ref 161670 // T2
+  
+  from ref 128134 z 3006 label "Start" xyz 287 132 3000 to ref 128518
+  write_horizontally default show_definition default drawing_language default
+end
+transitioncanvas 128774 transition_ref 161798 // T1.3
+  decenter_end 594
+  
+  from ref 128518 z 3006 to point 434 180
+  line 129286 z 3006 label "/ stm.log(\"T1.3(effect)\");" xyz 373 233 3000 to point 435 300
+  line 129158 z 3006 to ref 128390
+  write_horizontally default show_definition default drawing_language default
+end
+transitioncanvas 129670 transition_ref 162182 // T1.1
+  
+  from ref 129542 z 2006 to ref 129414
+  write_horizontally default show_definition default drawing_language default
+end
+transitioncanvas 129926 transition_ref 162310 // T1.2
+  
+  from ref 129414 z 2006 label "Continue / stm.log(\"T1.2(effect)\");" xyz 571 371 3000 to ref 129798
+  write_horizontally default show_definition default drawing_language default
+end
+transitioncanvas 130182 transition_ref 162438 // T3
+  
+  from ref 128390 z 2001 label "/ stm.log(\"T3(effect)\");" xyz 246 359 3000 to ref 130054
+  write_horizontally default show_definition default drawing_language default
+end
+end

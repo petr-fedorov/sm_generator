@@ -11,6 +11,9 @@ Unfortunately, generated behavioral state machines are not fully compliant with 
 | Test | Built-in State Machine Generator | Enhanced State Machine Generator |
 |------|:-----------------:|:----:|
 |UML-Compound Transition Example | :x: |  :heavy_check_mark: |
+|PSSM-Transition 010 |  :heavy_check_mark:  |  :heavy_check_mark:  |
+|PSSM-Transition 011-A | :x:   |  :heavy_check_mark:  |
+|PSSM-Transition 011-B | :x: |  :x:  |
 |PSSM-Entering 004 | :x:   |  :heavy_check_mark:  |
 |PSSM-Entering 005 |  :x:  |  :heavy_check_mark: |
 |PSSM-Entering 009 | :x:   | :heavy_check_mark:   |

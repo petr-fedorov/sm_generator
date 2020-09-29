@@ -1,0 +1,40 @@
+class Transition010
+!!!251142.cpp!!!	Transition010()
+  _current_state = 0;
+!!!251398.cpp!!!	create() : bool
+if (_current_state == 0)
+  (_current_state = &(*this)._transition010_state)->create(*this);
+return (_current_state != 0);
+!!!251782.cpp!!!	Start() : bool
+  if (_current_state != 0) {
+#ifdef VERBOSE_STATE_MACHINE
+    std::cout << "DEBUG : fire trigger Start" << std::endl;
+#endif
+    _current_state->Start(*this);
+  }
+  return (_current_state != 0);
+!!!252422.cpp!!!	Continue() : bool
+  if (_current_state != 0) {
+#ifdef VERBOSE_STATE_MACHINE
+    std::cout << "DEBUG : fire trigger Continue" << std::endl;
+#endif
+    _current_state->Continue(*this);
+  }
+  return (_current_state != 0);
+!!!252806.cpp!!!	AnotherSignal() : bool
+  if (_current_state != 0) {
+#ifdef VERBOSE_STATE_MACHINE
+    std::cout << "DEBUG : fire trigger AnotherSignal" << std::endl;
+#endif
+    _current_state->AnotherSignal(*this);
+  }
+  return (_current_state != 0);
+!!!253830.cpp!!!	doActivity() : void
+  _current_state->_do(*this);
+!!!253958.cpp!!!	_set_currentState(inout st : Transition010::AnyState) : void
+  _current_state = &st;
+!!!254086.cpp!!!	_final() : void
+  _current_state = 0;
+#ifdef VERBOSE_STATE_MACHINE
+    std::cout << "DEBUG : final state reached" << std::endl;
+#endif

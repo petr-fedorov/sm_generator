@@ -1,0 +1,69 @@
+format 223
+
+pseudostatecanvas 128006 pseudostate_ref 158854 // initial 
+   xyz 28 41 2000
+end
+statecanvas 128134 state_ref 160262 // wait
+  
+  xyzwh 84 29 2000 43 41
+end
+statecanvas 128390 state_ref 160390 // S1
+  
+  xyzwh 213 14 2000 625 337
+end
+statecanvas 128518 state_ref 160518 // S1.1
+  
+  xyzwh 262 138 2005 205 93
+end
+statecanvas 128646 state_ref 160646 // S1.2
+  
+  xyzwh 612 140 2005 205 77
+end
+pseudostatecanvas 128902 pseudostate_ref 158982 // initial 
+   xyz 356 282 2005
+end
+pseudostatecanvas 129414 pseudostate_ref 159110 // final 
+   xyz 525 272 2005
+end
+pseudostatecanvas 129670 pseudostate_ref 159238 // final 
+   xyz 31 251 2000
+end
+transitioncanvas 128262 transition_ref 160646 // T1
+  
+  from ref 128006 z 2001 to ref 128134
+  write_horizontally default show_definition default drawing_language default
+end
+transitioncanvas 128774 transition_ref 160774 // T2
+  
+  from ref 128134 z 2001 label "Start" xyz 156 59 3000 to ref 128390
+  write_horizontally default show_definition default drawing_language default
+end
+transitioncanvas 129030 transition_ref 160902 // T1.1
+  
+  from ref 128902 z 2006 to ref 128518
+  write_horizontally default show_definition default drawing_language default
+end
+transitioncanvas 129158 transition_ref 161030 // T1.2
+  
+  from ref 128518 z 2006 label "Pending" xyz 516 170 3000 to ref 128646
+  write_horizontally default show_definition default drawing_language default
+end
+transitioncanvas 129286 transition_ref 161158 // T1.3
+  decenter_begin 740
+  decenter_end 268
+  
+  from ref 128390 z 2006 label "Continue / stm.log(\"T1.3(effect)\");" xyz 581.5 307.5 3000 to point 665 282
+  line 130182 z 2006 to ref 128646
+  write_horizontally default show_definition default drawing_language default
+end
+transitioncanvas 129542 transition_ref 161286 // T1.4
+  
+  from ref 128646 z 2006 label "/ stm.log(\"T1.4(effect)\");" xyz 535 236 3000 to ref 129414
+  write_horizontally default show_definition default drawing_language default
+end
+transitioncanvas 129798 transition_ref 161414 // T3
+  
+  from ref 128390 z 2001 label "/ stm.log(\"T3(effect)\");" xyz 75 237 3000 to ref 129670
+  write_horizontally default show_definition default drawing_language default
+end
+end

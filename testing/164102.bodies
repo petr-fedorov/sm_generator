@@ -1,0 +1,10 @@
+class Transition010_State
+!!!251654.cpp!!!	create(inout stm : Transition010) : void
+  {
+    stm._set_currentState(stm._transition010_state._waiting_state);
+#ifdef VERBOSE_STATE_MACHINE
+    std::cout << "DEBUG : current state is now .Transition010.waiting" << std::endl;
+#endif
+  }
+!!!253702.cpp!!!	_upper(inout stm : Transition010) : Transition010::AnyState
+  return 0;

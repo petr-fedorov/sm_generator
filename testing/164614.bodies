@@ -1,0 +1,28 @@
+class AnyState
+!!!256262.cpp!!!	Start(inout stm : Transition011A) : void
+  AnyState * st = _upper(stm);
+
+  if (st != 0)
+    st->Start(stm);
+#ifdef VERBOSE_STATE_MACHINE
+  else
+    std::cout << "DEBUG : transition Start not expected" << std::endl;
+#endif
+!!!256774.cpp!!!	Pending(inout stm : Transition011A) : void
+  AnyState * st = _upper(stm);
+
+  if (st != 0)
+    st->Pending(stm);
+#ifdef VERBOSE_STATE_MACHINE
+  else
+    std::cout << "DEBUG : transition Pending not expected" << std::endl;
+#endif
+!!!258310.cpp!!!	Continue(inout stm : Transition011A) : void
+  AnyState * st = _upper(stm);
+
+  if (st != 0)
+    st->Continue(stm);
+#ifdef VERBOSE_STATE_MACHINE
+  else
+    std::cout << "DEBUG : transition Continue not expected" << std::endl;
+#endif

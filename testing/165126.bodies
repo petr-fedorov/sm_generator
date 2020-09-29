@@ -1,0 +1,25 @@
+class S11_State
+!!!256902.cpp!!!	Pending(inout stm : Transition011A) : void
+  {
+    for(auto s = stm._current_state; s != this && s; s = s->_upper(stm)) s->_doexit(stm);
+    stm._transition011a_state._s1_state._s11_state._doexit(stm);
+    stm._set_currentState(stm._transition011a_state._s1_state._s12_state);
+#ifdef VERBOSE_STATE_MACHINE
+    std::cout << "DEBUG : current state is now .Transition011A.S1.S1.2" << std::endl;
+#endif
+    stm._transition011a_state._s1_state._s12_state.create(stm);
+  }
+!!!257030.cpp!!!	create(inout stm : Transition011A) : void
+	_doentry(stm);
+!!!257158.cpp!!!	_doentry(inout stm : Transition011A) : void
+#ifdef VERBOSE_STATE_MACHINE
+  std::cout << "DEBUG : execute entry behavior of .Transition011A.S1.S1.1" << std::endl;
+#endif
+stm.log("S1.1(entry)");
+!!!257286.cpp!!!	_doexit(inout stm : Transition011A) : void
+#ifdef VERBOSE_STATE_MACHINE
+  std::cout << "DEBUG : execute exit behavior of .Transition011A.S1.S1.1" << std::endl;
+#endif
+stm.log("S1.1(exit)");
+!!!257414.cpp!!!	_upper(inout stm : Transition011A) : Transition011A::AnyState
+  return &stm._transition011a_state._s1_state;

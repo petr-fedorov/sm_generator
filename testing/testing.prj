@@ -1,6 +1,6 @@
 format 223
 "testing"
-  revision 13
+  revision 15
   modified_by 6 "petr"
   cpp_root_dir "/tmp/generator_testing/"
 
@@ -161,7 +161,7 @@ ${inlines}
 	    cpp_on_exit "stm.log(\"xS1\");"
 	  state 128518 "S11"
 	      cpp_on_exit "stm.log(\"xS11\");"
-	    transition 128006 "<transition>"
+	    transition 128006 "T1.2"
 	      on pseudostate_ref 128006 // exit_point exit
 		cpp_trigger "sig"
 		cpp_expr "stm.log(\"t1\");"
@@ -170,7 +170,7 @@ ${inlines}
 	  end
 
 	  pseudostate 128006 exit_point "exit"
-	    transition 128134 "<transition>"
+	    transition 128134 "T1.3"
 	      on pseudostate_ref 128134 // entry_point entry
 		cpp_expr "stm.log(\"t2\");"
 	      external 
@@ -178,7 +178,7 @@ ${inlines}
 	  end
 
 	  pseudostate 128518 initial ""
-	    transition 128646 "<transition>"
+	    transition 128646 "T1.1"
 	      on state_ref 128518 // S11
 	      external 
 	    end
@@ -194,7 +194,7 @@ ${inlines}
 	    end
 
 	    pseudostate 128134 entry_point "entry"
-	      transition 128262 "<transition>"
+	      transition 128262 "T1.4"
 		on state_ref 128774 // T111
 		  cpp_expr "stm.log(\"t3\");"
 		external 
@@ -204,7 +204,7 @@ ${inlines}
 	end
 
 	pseudostate 128390 initial ""
-	  transition 128518 "<transition>"
+	  transition 128518 "T1"
 	    on state_ref 128262 // S1
 	    external 
 	  end
@@ -212,7 +212,7 @@ ${inlines}
       end
 
       pseudostate 128262 initial ""
-	transition 128390 "<transition>"
+	transition 128390 "T0"
 	  on state_ref 128134 // S
 	  external 
 	end

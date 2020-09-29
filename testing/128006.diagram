@@ -37,34 +37,34 @@ pseudostatecanvas 129926 pseudostate_ref 128390 // initial
    xyz 232.9 147.4 2005
 end
 pseudostatecanvas 130182 pseudostate_ref 128518 // initial 
-   xyz 262.6 283.4 2010
+   xyz 315.6 299.4 2010
 end
-transitioncanvas 129030 transition_ref 128006 // <transition>
+transitioncanvas 129030 transition_ref 128006 // T1.2
   
-  from ref 128390 z 3006 label "sig / stm.log(\"t1\");" xyz 303.5 333.5 3000 to ref 128774
+  from ref 128390 z 3006 label "sig / stm.log(\"t1\");" xyz 304 333 3000 to ref 128774
   write_horizontally default show_definition default drawing_language default
 end
-transitioncanvas 129414 transition_ref 128134 // <transition>
+transitioncanvas 129414 transition_ref 128134 // T1.3
   
   from ref 128774 z 3006 label "/ stm.log(\"t2\");" xyz 502 329 3000 to ref 128902
   write_horizontally default show_definition default drawing_language default
 end
-transitioncanvas 129542 transition_ref 128262 // <transition>
+transitioncanvas 129542 transition_ref 128262 // T1.4
   
   from ref 128902 z 3006 label "/ stm.log(\"t3\");" xyz 671 336 3000 to ref 128646
   write_horizontally default show_definition default drawing_language default
 end
-transitioncanvas 129798 transition_ref 128390 // <transition>
+transitioncanvas 129798 transition_ref 128390 // T0
   
   from ref 129670 z 2001 to ref 128006
   write_horizontally default show_definition default drawing_language default
 end
-transitioncanvas 130054 transition_ref 128518 // <transition>
+transitioncanvas 130054 transition_ref 128518 // T1
   
   from ref 129926 z 2006 to ref 128134
   write_horizontally default show_definition default drawing_language default
 end
-transitioncanvas 130310 transition_ref 128646 // <transition>
+transitioncanvas 130310 transition_ref 128646 // T1.1
   
   from ref 130182 z 2011 to ref 128390
   write_horizontally default show_definition default drawing_language default

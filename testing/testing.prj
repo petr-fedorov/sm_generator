@@ -1,6 +1,6 @@
 format 223
 "testing"
-  revision 18
+  revision 19
   modified_by 6 "petr"
   cpp_root_dir "/tmp/generator_testing/"
 
@@ -9615,7 +9615,7 @@ ${inlines}
 	relation 171014 -_->
 	  stereotype "friend"
 	  a public
-	    cpp default "#include in source"
+	    cpp default "${type}"
 	    classrelation_ref 171014 // <dependency>
 	  b parent class_ref 164230 // waiting_State
       end
@@ -9658,7 +9658,7 @@ ${inlines}
 	relation 171270 -_->
 	  stereotype "friend"
 	  a public
-	    cpp default "#include in source"
+	    cpp default "${type}"
 	    classrelation_ref 171270 // <dependency>
 	  b parent class_ref 164358 // S1_State
       end
@@ -9667,7 +9667,7 @@ ${inlines}
 	relation 171398 -_->
 	  stereotype "friend"
 	  a public
-	    cpp default "#include in source"
+	    cpp default "${type}"
 	    classrelation_ref 171398 // <dependency>
 	  b parent class_ref 164102 // Transition010_State
       end
@@ -10703,7 +10703,7 @@ ${inlines}
 	relation 172038 -_->
 	  stereotype "friend"
 	  a public
-	    cpp default "#include in source"
+	    cpp default "${type}"
 	    classrelation_ref 172038 // <dependency>
 	  b parent class_ref 164870 // wait_State
       end
@@ -10729,7 +10729,7 @@ ${inlines}
 	relation 172422 -_->
 	  stereotype "friend"
 	  a public
-	    cpp default "#include in source"
+	    cpp default "${type}"
 	    classrelation_ref 172422 // <dependency>
 	  b parent class_ref 165126 // S11_State
       end
@@ -10738,7 +10738,7 @@ ${inlines}
 	relation 172678 -_->
 	  stereotype "friend"
 	  a public
-	    cpp default "#include in source"
+	    cpp default "${type}"
 	    classrelation_ref 172678 // <dependency>
 	  b parent class_ref 165254 // S12_State
       end
@@ -10764,7 +10764,7 @@ ${inlines}
 	relation 172806 -_->
 	  stereotype "friend"
 	  a public
-	    cpp default "#include in source"
+	    cpp default "${type}"
 	    classrelation_ref 172806 // <dependency>
 	  b parent class_ref 164998 // S1_State
       end
@@ -10773,7 +10773,7 @@ ${inlines}
 	relation 172934 -_->
 	  stereotype "friend"
 	  a public
-	    cpp default "#include in source"
+	    cpp default "${type}"
 	    classrelation_ref 172934 // <dependency>
 	  b parent class_ref 164742 // Transition011A_State
       end
@@ -10914,7 +10914,6 @@ event for S1 is used to trigger T3, which leads to the completion of the state m
 	      cpp_expr "stm.log(\"T1.3(effect)\");"
 	    external 
 	  end
-
 	end
 
 	state 161158 "S1.1"
@@ -11665,7 +11664,7 @@ ${inlines}
 	relation 173574 -_->
 	  stereotype "friend"
 	  a public
-	    cpp default "#include in source"
+	    cpp default "${type}"
 	    classrelation_ref 173574 // <dependency>
 	  b parent class_ref 165766 // wait_State
       end
@@ -11691,7 +11690,7 @@ ${inlines}
 	relation 173958 -_->
 	  stereotype "friend"
 	  a public
-	    cpp default "#include in source"
+	    cpp default "${type}"
 	    classrelation_ref 173958 // <dependency>
 	  b parent class_ref 166022 // S11_State
       end
@@ -11700,7 +11699,7 @@ ${inlines}
 	relation 174086 -_->
 	  stereotype "friend"
 	  a public
-	    cpp default "#include in source"
+	    cpp default "${type}"
 	    classrelation_ref 174086 // <dependency>
 	  b parent class_ref 165894 // S1_State
       end
@@ -11709,7 +11708,7 @@ ${inlines}
 	relation 174214 -_->
 	  stereotype "friend"
 	  a public
-	    cpp default "#include in source"
+	    cpp default "${type}"
 	    classrelation_ref 174214 // <dependency>
 	  b parent class_ref 165638 // Transition011B_State
       end

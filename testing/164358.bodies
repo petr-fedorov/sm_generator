@@ -11,7 +11,6 @@ class S1_State
   }
 !!!253062.cpp!!!	AnotherSignal(inout stm : Transition010) : void
   {
-    for(auto s = stm._current_state; s != this && s; s = s->_upper(stm)) s->_doexit(stm);
 #ifdef VERBOSE_STATE_MACHINE
     std::cout << "DEBUG : execute activity of transition IT" << std::endl;
 #endif

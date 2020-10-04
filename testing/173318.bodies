@@ -1,0 +1,21 @@
+class S12_State
+!!!273926.cpp!!!	Continue(inout stm : Transition011C) : void
+  {
+    for(auto s = stm._current_state; s != this && s; s = s->_upper(stm)) s->_doexit(stm);
+    stm._transition011c_state._s1_state._s12_state._doexit(stm);
+#ifdef VERBOSE_STATE_MACHINE
+    std::cout << "DEBUG : execute activity of transition T1.3" << std::endl;
+#endif
+stm.log("T1.3(effect)");    stm._set_currentState(stm._transition011c_state._s1_state);
+#ifdef VERBOSE_STATE_MACHINE
+    std::cout << "DEBUG : current state is now .Transition011C.S1" << std::endl;
+#endif
+    stm._transition011c_state._s1_state.create(stm);
+  }
+!!!274054.cpp!!!	_doexit(inout stm : Transition011C) : void
+#ifdef VERBOSE_STATE_MACHINE
+  std::cout << "DEBUG : execute exit behavior of .Transition011C.S1.S1.2" << std::endl;
+#endif
+stm.log("S1.2(exit)");
+!!!274182.cpp!!!	_upper(inout stm : Transition011C) : Transition011C::AnyState
+  return &stm._transition011c_state._s1_state;

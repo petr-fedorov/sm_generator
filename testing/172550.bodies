@@ -1,0 +1,32 @@
+class Transition011C
+!!!271750.cpp!!!	Transition011C()
+  _current_state = 0;
+!!!272006.cpp!!!	create() : bool
+if (_current_state == 0)
+  (_current_state = &(*this)._transition011c_state)->create(*this);
+return (_current_state != 0);
+!!!272390.cpp!!!	Start() : bool
+  if (_current_state != 0) {
+#ifdef VERBOSE_STATE_MACHINE
+    std::cout << "DEBUG : fire trigger Start" << std::endl;
+#endif
+    _current_state->Start(*this);
+  }
+  return (_current_state != 0);
+!!!273670.cpp!!!	Continue() : bool
+  if (_current_state != 0) {
+#ifdef VERBOSE_STATE_MACHINE
+    std::cout << "DEBUG : fire trigger Continue" << std::endl;
+#endif
+    _current_state->Continue(*this);
+  }
+  return (_current_state != 0);
+!!!274950.cpp!!!	doActivity() : void
+  _current_state->_do(*this);
+!!!275078.cpp!!!	_set_currentState(inout st : Transition011C::AnyState) : void
+  _current_state = &st;
+!!!275206.cpp!!!	_final() : void
+  _current_state = 0;
+#ifdef VERBOSE_STATE_MACHINE
+    std::cout << "DEBUG : final state reached" << std::endl;
+#endif

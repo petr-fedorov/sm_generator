@@ -52,6 +52,14 @@ classcanvas 132102 class_ref 165382 // Transition011B
   classdiagramsettings member_max_width 0 end
   xyz 81 105 2000
 end
+classcanvas 132358 class_ref 172550 // Transition011C
+  classdiagramsettings member_max_width 0 end
+  xyz 596 42 2028
+end
+classcanvas 133382 class_ref 179846 // Transition011E
+  classdiagramsettings member_max_width 0 end
+  xyz 79 32 2000
+end
 relationcanvas 128518 relation_ref 129926 // <generalisation>
   from ref 128134 z 2001 to ref 128006
   no_role_a no_role_b
@@ -109,6 +117,16 @@ relationcanvas 131974 relation_ref 173190 // <generalisation>
 end
 relationcanvas 132230 relation_ref 174470 // <generalisation>
   from ref 132102 z 2001 to ref 128006
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+relationcanvas 132486 relation_ref 182406 // <generalisation>
+  from ref 132358 z 2029 to ref 128006
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+relationcanvas 133510 relation_ref 190086 // <generalisation>
+  from ref 133382 z 2001 to ref 128006
   no_role_a no_role_b
   no_multiplicity_a no_multiplicity_b
 end

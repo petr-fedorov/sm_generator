@@ -1,0 +1,65 @@
+format 223
+
+pseudostatecanvas 128006 pseudostate_ref 166790 // initial 
+   xyz 46 182 2000
+end
+statecanvas 128134 state_ref 168454 // wait
+  
+  xyzwh 146 172 2000 43 41
+end
+statecanvas 128390 state_ref 168582 // S1
+  
+  xyzwh 325 98 2000 439 351
+end
+pseudostatecanvas 128518 pseudostate_ref 166918 // initial 
+   xyz 567 197 2005
+end
+statecanvas 128646 state_ref 168710 // S1.1
+  
+  xyzwh 475 259 2005 205 93
+end
+pseudostatecanvas 128902 pseudostate_ref 167046 // final 
+   xyz 564 398 2005
+end
+pseudostatecanvas 129158 pseudostate_ref 167174 // entry_point entry
+   xyz 316 184 3005 label_xy 312 203
+end
+pseudostatecanvas 129286 pseudostate_ref 167302 // exit_point exit
+   xyz 316 329 3005 label_xy 316 348
+end
+pseudostatecanvas 129926 pseudostate_ref 167430 // final 
+   xyz 54 328 2000
+end
+transitioncanvas 128262 transition_ref 169734 // T1
+  
+  from ref 128006 z 2001 to ref 128134
+  write_horizontally default show_definition default drawing_language default
+end
+transitioncanvas 128774 transition_ref 169862 // T1.1
+  
+  from ref 128518 z 2006 to ref 128646
+  write_horizontally default show_definition default drawing_language default
+end
+transitioncanvas 129030 transition_ref 169990 // T1.2
+  
+  from ref 128646 z 2006 to ref 128902
+  write_horizontally default show_definition default drawing_language default
+end
+transitioncanvas 129414 transition_ref 170118 // T1.3
+  
+  from ref 129158 z 3006 to point 360 191
+  line 129670 z 3006 label "/ stm.log(\"T1.3(effect)\");" xyz 300 256 3000 to point 362 336
+  line 129542 z 3006 to ref 129286
+  write_horizontally default show_definition default drawing_language default
+end
+transitioncanvas 129798 transition_ref 170246 // T2
+  
+  from ref 128134 z 3006 label "Start" xyz 238 183 3000 to ref 129158
+  write_horizontally default show_definition default drawing_language default
+end
+transitioncanvas 130054 transition_ref 170374 // T3
+  
+  from ref 129286 z 3006 to ref 129926
+  write_horizontally default show_definition default drawing_language default
+end
+end

@@ -1,6 +1,6 @@
 format 223
 "testing"
-  revision 20
+  revision 22
   modified_by 6 "petr"
   cpp_root_dir "/tmp/generator_testing/"
 

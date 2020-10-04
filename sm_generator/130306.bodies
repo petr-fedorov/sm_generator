@@ -12,7 +12,13 @@ class UmlEntryPointPseudoState
     UmlCom::trace("Error : entry point '" + name() + "' can't have several transitions<br>");
     throw 0;
   }
-  body += indent + "  stm" + static_cast<UmlState *>(parent())->path() + "._doentry(stm);\n";
+  if (static_cast<UmlTransition*>(ch[0])->target() != static_cast<UmlState *>(parent()))
+    body += indent + "  stm" + static_cast<UmlState *>(parent())->path() +
+            "._doentry(stm);\n";
+  else
+    // PF: A default state entry needs to be performed ...
+    body += indent + "  stm" + static_cast<UmlState *>(parent())->path() +
+            ".create(stm);\n";
 
   // here there is 1 transition
   ((UmlTransition *) ch[0])->generate(machine, anystate, state, body, indent, trigger);

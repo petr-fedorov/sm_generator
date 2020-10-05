@@ -21,6 +21,6 @@ Unfortunately, generated behavioral state machines are not fully compliant with 
 |PSSM-Entering 009 | :x:   | :heavy_check_mark:   |
 |PSSM-Event 016 | :x:   |  :heavy_check_mark:  |
 |PSSM-Event 018 | :heavy_check_mark:   |  :heavy_check_mark:  |
-|PSSM-Exiting 001 | :x:   |  :heavy_check_mark:  |
+|[PSSM-Exiting 001](testing/Exiting001.png) | :x:   |  :heavy_check_mark:  |
 |PSSM-Exiting 004 | :heavy_check_mark:   |  :heavy_check_mark:  |
 |PSSM-Exit 001 |:heavy_check_mark:    |  :heavy_check_mark:  |

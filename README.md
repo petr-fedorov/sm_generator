@@ -10,17 +10,17 @@ Unfortunately, generated behavioral state machines are not fully compliant with 
 
 | Test | Built-in State Machine Generator | Enhanced State Machine Generator |
 |------|:-----------------:|:----:|
-|UML-Compound Transition Example | :x: |  :heavy_check_mark: |
-|PSSM-Transition 010 |  :heavy_check_mark:  |  :heavy_check_mark:  |
-|PSSM-Transition 011-A | :x:   |  :heavy_check_mark:  |
-|PSSM-Transition 011-B | :x: | :heavy_check_mark: |
-|PSSM-Transition 011-C | :x: | :x: |
-|PSSM-Transition 011-E | :x: | :x: |
-|PSSM-Entering 004 | :x:   |  :heavy_check_mark:  |
-|PSSM-Entering 005 |  :x:  |  :heavy_check_mark: |
-|PSSM-Entering 009 | :x:   | :heavy_check_mark:   |
-|PSSM-Event 016 | :x:   |  :heavy_check_mark:  |
-|PSSM-Event 018 | :heavy_check_mark:   |  :heavy_check_mark:  |
+|[UML-Compound Transition Example](testing/CompoundTransitionExample.png) | :x: |  :heavy_check_mark: |
+|[PSSM-Transition 010](testing/Transition010.png) |  :heavy_check_mark:  |  :heavy_check_mark:  |
+|[PSSM-Transition 011-A](testing/Transition011A.png) | :x:   |  :heavy_check_mark:  |
+|[PSSM-Transition 011-B](testing/Transition011B.png) | :x: | :heavy_check_mark: |
+|[PSSM-Transition 011-C](testing/Transition011C.png) | :x: | :x: |
+|[PSSM-Transition 011-E](testing/Transition011E.png) | :x: | :x: |
+|[PSSM-Entering 004](testing/Entering004.png) | :x:   |  :heavy_check_mark:  |
+|[PSSM-Entering 005](testing/Entering005.png) |  :x:  |  :heavy_check_mark: |
+|[PSSM-Entering 009](testing/Entering009.png) | :x:   | :heavy_check_mark:   |
+|[PSSM-Event 016](testing/Event016.png) | :x:   |  :heavy_check_mark:  |
+|[PSSM-Event 018](testing/Event018.png) | :heavy_check_mark:   |  :heavy_check_mark:  |
 |[PSSM-Exiting 001](testing/Exiting001.png) | :x:   |  :heavy_check_mark:  |
-|PSSM-Exiting 004 | :heavy_check_mark:   |  :heavy_check_mark:  |
-|PSSM-Exit 001 |:heavy_check_mark:    |  :heavy_check_mark:  |
+|[PSSM-Exiting 004](testing/Exiting004.png) | :heavy_check_mark:   |  :heavy_check_mark:  |
+|[PSSM-Exit 001](testing/Exit001.png) |:heavy_check_mark:    |  :heavy_check_mark:  |

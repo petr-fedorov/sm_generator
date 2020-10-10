@@ -131,7 +131,8 @@ return TRUE;
       machine->setUseless();
       machine->defaultDef();
       machine->setComment("implement the state machine " + name());
-      
+
+      //
       // a class named "AnyState" is a super class of all the classes
       // representing sub states
       // it is defined a the first position under machine
@@ -151,6 +152,26 @@ return TRUE;
       anystate->set_Visibility(ProtectedVisibility);
       anystate->addDestructor();
       
+      // add attribute _machine_name
+
+      UmlAttribute *var;
+      qn = "_machine_name";
+
+      if (((var = (UmlAttribute *)machine->getChild(anAttribute, qn)) == 0) &&
+          ((var = UmlBaseAttribute::create(machine, qn)) == 0)) {
+        UmlCom::trace("Error : can't create atttibute '" + qn + "' under '" +
+                      machine->name() + "'<br>");
+        throw 0;
+      }
+      var->setUsed();
+      UmlTypeSpec t;
+
+      t.explicit_type = "string";
+      var->set_Type(t);
+      var->set_CppDecl(CppSettings::attributeDecl(0));
+      var->setComment("a (unique) name of the machine ");
+      var->set_Visibility(PublicVisibility);
+
       // add abstract operation _upper
       UmlOperation * upper;
       
@@ -330,7 +351,7 @@ return ("+ _current_state + " != 0);\n";
       final->defaultDef();
       final->setComment("execution done, internal");
       final->setType("void", "${type}");
-      s = "  " + _current_state + " = 0;\n" + verbosity("DEBUG : final state reached");
+      s = "  " + _current_state + " = 0;\n" + machine->name() + " &stm {*this};\n" + verbosity("final state reached");
       final->set_CppBody(s);
       if (final->isCppInline())
 	// defined by old release
@@ -428,7 +449,7 @@ return ("+ _current_state + " != 0);\n";
     doen->setParams("${t0} & ${p0}");
     doen->setComment("perform the 'entry behavior'");
     doen->setType("void", "${type}");
-    s.insert(0,verbosity("DEBUG : execute entry behavior of " + _pretty_path));
+    s.insert(0,verbosity("execute entry behavior of " + _pretty_path));
     doen->set_CppBody(s);
   }
 
@@ -451,7 +472,7 @@ return ("+ _current_state + " != 0);\n";
     doex->setParams("${t0} & ${p0}");
     doex->setComment("perform the 'exit behavior'");
     doex->setType("void", "${type}");
-    s.insert(0,verbosity("DEBUG : execute exit behavior of " + _pretty_path));
+    s.insert(0,verbosity("execute exit behavior of " + _pretty_path));
     doex->set_CppBody(s);
   }
 
@@ -472,7 +493,7 @@ return ("+ _current_state + " != 0);\n";
     da->setParams("${t0} & ${p0}");
     da->setComment("perform the 'do activity'");
     da->setType("void", "${type}");
-    s_do.insert(0, verbosity( "DEBUG : execute do behavior of " + _pretty_path));
+    s_do.insert(0, verbosity( "execute do behavior of " + _pretty_path));
     da->set_CppBody(s_do);
     da->set_isCppVirtual(TRUE);
   }

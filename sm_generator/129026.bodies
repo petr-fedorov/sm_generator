@@ -189,9 +189,7 @@ class UmlTransition
     
     // manage transition activity
     if (!tr->cppActivity().isEmpty())
-      body += "#ifdef VERBOSE_STATE_MACHINE\n" + indent + 
-	"  std::cout << \"DEBUG : execute activity of transition " + tr->name() +
-	  "\" << std::endl;\n#endif\n" + tr->cppActivity();
+      body += verbosity("DEBUG : execute activity of transition " + tr->name()) + tr->cppActivity();
   
     // manage entry behavior
     if (self_external) {
@@ -219,9 +217,7 @@ class UmlTransition
       // set the current state if needed
       if (tg != state)
 	body += indent + "  stm._set_currentState(stm"
-	  + ((UmlState *) tg)->path() + ");\n#ifdef VERBOSE_STATE_MACHINE\n" +
-	    indent + "  std::cout << \"DEBUG : current state is now " + ((UmlState *) tg)->prettyPath() +
-	      "\" << std::endl;\n#endif\n";
+	  + ((UmlState *) tg)->path() + ");\n" + verbosity("DEBUG : current state is now " + ((UmlState *) tg)->prettyPath());
       // do behavior for internal self transitions
       else if (!tr->isExternal() && !state->cppDoActivity().isEmpty())
 	body += indent + "  _do(stm);\n";

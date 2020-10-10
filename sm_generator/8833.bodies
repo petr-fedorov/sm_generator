@@ -86,3 +86,9 @@ throw 0;
     for (unsigned index = v.count(); index != 0; index -= 1)
       v[index - 1]->deleteUseless();
   }
+!!!141190.cpp!!!	verbosity(in message : string) : string
+return "#ifdef VERBOSE_STATE_MACHINE\n"
+       "    std::cout << \"" +
+       message +
+       "\" << std::endl;\n"
+       "#endif\n";

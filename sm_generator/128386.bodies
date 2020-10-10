@@ -330,10 +330,7 @@ return ("+ _current_state + " != 0);\n";
       final->defaultDef();
       final->setComment("execution done, internal");
       final->setType("void", "${type}");
-      s = "  " + _current_state + " = 0;\n"
-	"#ifdef VERBOSE_STATE_MACHINE\n"
-	  "    std::cout << \"DEBUG : final state reached\" << std::endl;\n"
-	    "#endif\n";
+      s = "  " + _current_state + " = 0;\n" + verbosity("DEBUG : final state reached");
       final->set_CppBody(s);
       if (final->isCppInline())
 	// defined by old release
@@ -431,10 +428,7 @@ return ("+ _current_state + " != 0);\n";
     doen->setParams("${t0} & ${p0}");
     doen->setComment("perform the 'entry behavior'");
     doen->setType("void", "${type}");
-    s.insert(0,
-	     "#ifdef VERBOSE_STATE_MACHINE\n"
-	     "  std::cout << \"DEBUG : execute entry behavior of " + _pretty_path + "\" << std::endl;\n"
-	     "#endif\n");
+    s.insert(0,verbosity("DEBUG : execute entry behavior of " + _pretty_path));
     doen->set_CppBody(s);
   }
 
@@ -457,10 +451,7 @@ return ("+ _current_state + " != 0);\n";
     doex->setParams("${t0} & ${p0}");
     doex->setComment("perform the 'exit behavior'");
     doex->setType("void", "${type}");
-    s.insert(0, 
-	     "#ifdef VERBOSE_STATE_MACHINE\n"
-	     "  std::cout << \"DEBUG : execute exit behavior of " + _pretty_path + "\" << std::endl;\n"
-	     "#endif\n");
+    s.insert(0,verbosity("DEBUG : execute exit behavior of " + _pretty_path));
     doex->set_CppBody(s);
   }
 
@@ -481,10 +472,7 @@ return ("+ _current_state + " != 0);\n";
     da->setParams("${t0} & ${p0}");
     da->setComment("perform the 'do activity'");
     da->setType("void", "${type}");
-    s_do.insert(0, 
-		"#ifdef VERBOSE_STATE_MACHINE\n"
-		"  std::cout << \"DEBUG : execute do behavior of " + _pretty_path + "\" << std::endl;\n"
-		"#endif\n");
+    s_do.insert(0, verbosity( "DEBUG : execute do behavior of " + _pretty_path));
     da->set_CppBody(s_do);
     da->set_isCppVirtual(TRUE);
   }

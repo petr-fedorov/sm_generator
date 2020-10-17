@@ -24,7 +24,7 @@ class UmlClass
 	QByteArray _current_state = 
 	  realName("_current_state", CppSettings::relationDecl(FALSE, ""));
 	QByteArray b = "\
-  if (" + _current_state + " != 0) {\n\ " + machine->name() + " & stm {*this};\n" + verbosity("fire trigger " + s ) + _current_state + "->" + s + "(*this);\n\
+  if (" + _current_state + " != 0) {\n #ifdef VERBOSE_STATE_MACHINE\n" + machine->name() + " & stm {*this};\n #endif\n" + verbosity("fire trigger " + s ) + _current_state + "->" + s + "(*this);\n\
   }\n\
   return (" + _current_state + " != 0);\n";
 	

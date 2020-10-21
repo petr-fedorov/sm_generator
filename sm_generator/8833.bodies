@@ -87,9 +87,13 @@ throw 0;
       v[index - 1]->deleteUseless();
   }
 !!!141190.cpp!!!	verbosity(in message : string) : string
-return "#ifdef VERBOSE_STATE_MACHINE\n"
+/* return "#ifdef VERBOSE_STATE_MACHINE\n"
        "   BOOST_LOG_TRIVIAL(debug) <<  stm._machine_name << \"" +
        message + "\";\n"
-       "#endif\n";
-       // "\" << std::endl;\n"
-       // "    std::cout <<  stm._machine_name << \"DEBUG: " +
+       "#endif\n"; */
+
+return "#ifdef VERBOSE_STATE_MACHINE\n"
+       "    std::cout <<  stm._machine_name << \"DEBUG: " +
+       message + "\" << std::endl;\n"
+       "#endif\n"; 
+

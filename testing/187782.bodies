@@ -1,0 +1,15 @@
+class Choice001_State
+!!!303110.cpp!!!	create(inout stm : Choice001) : void
+  {
+#ifdef VERBOSE_STATE_MACHINE
+    std::cout <<  stm._machine_name << "DEBUG: execute activity of transition T1" << std::endl;
+#endif
+stm.condition1 = true;
+stm.condition2 = false;    stm._set_currentState(stm._choice001_state._wait_state);
+#ifdef VERBOSE_STATE_MACHINE
+    std::cout <<  stm._machine_name << "DEBUG: current state is now .Choice001.wait" << std::endl;
+#endif
+    stm._choice001_state._wait_state.create(stm);
+  }
+!!!303238.cpp!!!	_upper(inout stm : Choice001) : Choice001::AnyState
+  return 0;

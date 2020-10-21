@@ -1,0 +1,44 @@
+class wait_State
+!!!302470.cpp!!!	_completion(inout stm : Choice001) : bool
+  {
+    for(auto s = stm._current_state; s != this && s; s = s->_upper(stm)) s->_doexit(stm);
+    stm._set_currentState(stm._choice001_state);
+#ifdef VERBOSE_STATE_MACHINE
+    std::cout <<  stm._machine_name << "DEBUG: current state is now .Choice001" << std::endl;
+#endif
+    if (stm.condition1) {
+#ifdef VERBOSE_STATE_MACHINE
+    std::cout <<  stm._machine_name << "DEBUG: execute activity of transition T3" << std::endl;
+#endif
+stm.condition1 = false; 
+stm.log("T3(effect)");      stm._set_currentState(stm._choice001_state._wait_state);
+#ifdef VERBOSE_STATE_MACHINE
+    std::cout <<  stm._machine_name << "DEBUG: current state is now .Choice001.wait" << std::endl;
+#endif
+      stm._choice001_state._wait_state.create(stm);
+    }
+    else {
+      if (stm.condition2) {
+#ifdef VERBOSE_STATE_MACHINE
+    std::cout <<  stm._machine_name << "DEBUG: execute activity of transition T6" << std::endl;
+#endif
+stm.log("T6(effect)");          stm._final();
+      }
+      else {
+#ifdef VERBOSE_STATE_MACHINE
+    std::cout <<  stm._machine_name << "DEBUG: execute activity of transition T5" << std::endl;
+#endif
+stm.condition2 = true;
+stm.log("T5(effect)");        stm._set_currentState(stm._choice001_state._wait_state);
+#ifdef VERBOSE_STATE_MACHINE
+    std::cout <<  stm._machine_name << "DEBUG: current state is now .Choice001.wait" << std::endl;
+#endif
+        stm._choice001_state._wait_state.create(stm);
+      }
+    }
+    return (bool) 1;
+  }
+!!!302854.cpp!!!	create(inout stm : Choice001) : void
+	_completion(stm);
+!!!302982.cpp!!!	_upper(inout stm : Choice001) : Choice001::AnyState
+  return &stm._choice001_state;

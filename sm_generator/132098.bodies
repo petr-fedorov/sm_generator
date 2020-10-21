@@ -1,12 +1,23 @@
 class UmlChoicePseudoState
 !!!150914.cpp!!!	generate(inout machine : UmlClass, inout anystate : UmlClass, inout state : UmlState, inout body : string, in indent : string, in trigger : string) : void
-  const Q3PtrVector<UmlItem> ch = children();
-  Q3PtrList<UmlTransition> trs;
-  unsigned index;
-  
-  for (index = 0; index != ch.count(); index += 1)
-    if (ch[index]->kind() == aTransition)
-      // theo mandatory
-      trs.append((UmlTransition *) ch[index]);
-    
-  UmlTransition::generate(trs, machine, anystate, state, body, indent, trigger, FALSE);
+const Q3PtrVector<UmlItem> ch = children();
+Q3PtrList<UmlTransition> trs;
+unsigned index;
+UmlTransition *tr_no_guard = 0;
+
+for (index = 0; index != ch.count(); index += 1)
+  if (ch[index]->kind() == aTransition)
+    if (!((UmlTransition *)ch[index])->cppGuard().isEmpty())
+      trs.append((UmlTransition *)ch[index]);
+    else if (tr_no_guard != 0) {
+      UmlCom::trace("Error : several transitions from choice pseudostate " 
+                    " don't have guard");
+      throw 0;
+    } else
+      tr_no_guard = (UmlTransition *)ch[index];
+
+if (tr_no_guard != 0)
+  // place it at end
+  trs.append(tr_no_guard);
+UmlTransition::generate(trs, machine, anystate, state, body, indent, trigger,
+                        FALSE);

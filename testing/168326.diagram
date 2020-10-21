@@ -1,0 +1,60 @@
+format 223
+
+statecanvas 128006 state_ref 175366 // wait
+  
+  xyzwh 286 219 2000 43 41
+end
+pseudostatecanvas 128134 pseudostate_ref 173958 // choice 
+   xyz 294 317 2000
+end
+pseudostatecanvas 128390 pseudostate_ref 174086 // initial 
+   xyz 298 123 2000
+end
+pseudostatecanvas 128646 pseudostate_ref 174214 // choice 
+   xyz 470 315 2000
+end
+pseudostatecanvas 129030 pseudostate_ref 174342 // final 
+   xyz 298 450 2000
+end
+note 130950 "CHOICE
+
+This type of Pseudostate is similar to a junction Pseudostate and serves similar purposes, with the difference that the guard Constraints on all outgoing Transitions are evaluated dynamically, when the compound transition traversal reaches this Pseudostate. Consequently, choice is used to realize a dynamic conditional branch. It allows splitting of compound transitions into multiple alternative paths such that the decision on which path to take may depend on the results of Behavior executions performed in the same compound transition prior to reaching the choice point."
+  xyzwh 393 14 2000 431 191
+transitioncanvas 128262 transition_ref 176902 // T2
+  
+  from ref 128006 z 2001 to ref 128134
+  write_horizontally default show_definition default drawing_language default
+end
+transitioncanvas 128518 transition_ref 177030 // T1
+  
+  from ref 128390 z 2001 label "/ stm.condition1 = true;
+stm.condition2 = false;" xyz 246 162 3000 to ref 128006
+  write_horizontally default show_definition default drawing_language default
+end
+transitioncanvas 128774 transition_ref 177158 // T4
+  
+  from ref 128134 z 2001 to ref 128646
+  write_horizontally default show_definition default drawing_language default
+end
+transitioncanvas 129158 transition_ref 177286 // T6
+  
+  from ref 128646 z 2001 label "[stm.condition2] / stm.log(\"T6(effect)\");" xyz 380.5 397.5 3000 to point 481 460
+  line 130182 z 2001 to ref 129030
+  write_horizontally default show_definition default drawing_language default
+end
+transitioncanvas 129286 transition_ref 177414 // T3
+  
+  from ref 128134 z 2001 to point 138 331
+  line 129670 z 2001 label "[stm.condition1] / stm.condition1 = false; 
+stm.log(\"T3(effect)\");" xyz 33 268.5 3000 to point 138 237
+  line 129414 z 2001 to ref 128006
+  write_horizontally default show_definition default drawing_language default
+end
+transitioncanvas 129798 transition_ref 177542 // T5
+  
+  from ref 128646 z 2001 label "/ stm.condition2 = true;
+stm.log(\"T5(effect)\");" xyz 421 259 3000 to point 480 236
+  line 129926 z 2001 to ref 128006
+  write_horizontally default show_definition default drawing_language default
+end
+end

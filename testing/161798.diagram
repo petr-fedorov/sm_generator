@@ -48,13 +48,13 @@ end
 transitioncanvas 129414 transition_ref 170118 // T1.3
   
   from ref 129158 z 3006 to point 360 191
-  line 129670 z 3006 label "/ stm.log(\"T1.3(effect)\");" xyz 300 256 3000 to point 362 336
+  line 129670 z 3006 label "/ stm.log(\"T1.3(effect)\");" xyz 300 256 3006 to point 362 336
   line 129542 z 3006 to ref 129286
   write_horizontally default show_definition default drawing_language default
 end
 transitioncanvas 129798 transition_ref 170246 // T2
   
-  from ref 128134 z 3006 label "Start" xyz 238 183 3000 to ref 129158
+  from ref 128134 z 3006 label "Start" xyz 238 183 3006 to ref 129158
   write_horizontally default show_definition default drawing_language default
 end
 transitioncanvas 130054 transition_ref 170374 // T3

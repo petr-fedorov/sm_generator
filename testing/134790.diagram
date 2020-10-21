@@ -42,12 +42,12 @@ transitioncanvas 129158 transition_ref 135942 // T1.1
 end
 transitioncanvas 129542 transition_ref 136198 // T2
   
-  from ref 128006 z 2001 label "Start" xyz 341 202 2001 to ref 128518
+  from ref 128006 z 2001 label "Start" xyz 341 202 3000 to ref 128518
   write_horizontally default show_definition default drawing_language default
 end
 transitioncanvas 129798 transition_ref 136326 // T3
   
-  from ref 128518 z 2001 label "Continue / stm.log(\"T3(effect)\");" xyz 633 389 2001 to ref 129670
+  from ref 128518 z 2001 label "Continue / stm.log(\"T3(effect)\");" xyz 633 389 3000 to ref 129670
   write_horizontally default show_definition default drawing_language default
 end
 transitioncanvas 130054 transition_ref 136454 // T1.1.1

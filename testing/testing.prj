@@ -1,6 +1,6 @@
 format 223
 "testing"
-  revision 25
+  revision 27
   modified_by 6 "petr"
   cpp_root_dir "/tmp/generator_testing/"
 
@@ -1325,6 +1325,600 @@ ${inlines}
     end
   end
 
+  classview 168326 "UML-Choice 001"
+    
+    classdiagramsettings member_max_width 0 end
+    
+    classcompositediagramsettings end
+    
+    collaborationdiagramsettings end
+    
+    objectdiagramsettings end
+    
+    objectcompositediagramsettings end
+    
+    sequencediagramsettings end
+    
+    statediagramsettings
+     end
+    
+    
+    activitydiagramsettings
+     end
+    state 175238 "Choice001"
+      stereotype "machine"
+      comment "See 14.2.3.7 Pseudostate and PseudostateKind for definition of the \"choise\" pseudostate and its expected behaviour"
+      statediagram 168326 "ChainedChoice"
+	statediagramsettings show_trans_definition yes
+	 drawing_language c++ end
+	size A4
+      end
+
+      state 175366 "wait"
+	transition 176902 "T2"
+	  on pseudostate_ref 173958 // choice 
+	  external 
+	end
+      end
+
+      pseudostate 173958 choice ""
+	transition 177414 "T3"
+	  on state_ref 175366 // wait
+	    cpp_guard "stm.condition1"
+	    cpp_expr "stm.condition1 = false; 
+stm.log(\"T3(effect)\");"
+	  external 
+	end
+
+	transition 177158 "T4"
+	  on pseudostate_ref 174214 // choice 
+	  external 
+	end
+      end
+
+      pseudostate 174086 initial ""
+	transition 177030 "T1"
+	  on state_ref 175366 // wait
+	    cpp_expr "stm.condition1 = true;
+stm.condition2 = false;"
+	  external 
+	end
+      end
+
+      pseudostate 174214 choice ""
+	transition 177286 "T6"
+	  on pseudostate_ref 174342 // final 
+	    cpp_guard "stm.condition2"
+	    cpp_expr "stm.log(\"T6(effect)\");"
+	  external 
+	end
+
+	transition 177542 "T5"
+	  on state_ref 175366 // wait
+	    cpp_expr "stm.condition2 = true;
+stm.log(\"T5(effect)\");"
+	  external 
+	end
+      end
+
+      pseudostate 174342 final ""
+      end
+    end
+
+    class 187526 "Choice001"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      ncouples 1
+      key "STM generated" value ""
+      comment " implement the state machine Choice001"
+      class 187654 "AnyState"
+	abstract visibility protected 
+	cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+	java_decl ""
+	php_decl ""
+	python_2_2 python_decl ""
+	idl_decl ""
+	explicit_switch_type ""
+	mysql_decl ""
+	
+	ncouples 1
+	key "STM generated" value ""
+	comment " Mother class of all the classes representing states"
+	operation 301574 "~AnyState"
+	  force_body_gen cpp_virtual public explicit_return_type ""
+	  nparams 0
+	  cpp_decl "    ${comment}${inline}${virtual}${typeprefix}${name}${(}${)}${volatile}${throw};
+"
+	  cpp_def "${comment}${inline}${typeprefix}${class}::${name}${(}${)}${volatile}${throw} {
+  ${body}}
+"
+	  
+	  
+	  
+	  
+	  ncouples 1
+	  key "STM generated" value ""
+	end
+
+	operation 301702 "_upper"
+	  abstract force_body_gen cpp_virtual public return_type class_ref 187654 // AnyState
+	  nparams 1
+	    param inout name "stm" type class_ref 187526 // Choice001
+	  cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} * ${name}${(}${t0} &${)}${const}${volatile}${throw}${abstract};
+"
+	  
+	  
+	  
+	  
+	  ncouples 1
+	  key "STM generated" value ""
+	  comment " return the upper state"
+	end
+
+	operation 301830 "_do"
+	  force_body_gen cpp_virtual public explicit_return_type "void"
+	  nparams 1
+	    param inout name "stm" type class_ref 187526 // Choice001
+	  cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} &${)}${const}${volatile}${throw}${abstract};
+"
+	  cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${t0} &${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	  
+	  
+	  
+	  
+	  ncouples 1
+	  key "STM generated" value ""
+	  comment " perform the 'do activity'"
+	end
+
+	operation 302726 "create"
+	  force_body_gen cpp_virtual public explicit_return_type "void"
+	  nparams 1
+	    param inout name "stm" type class_ref 187526 // Choice001
+	  cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} &${)}${const}${volatile}${throw}${abstract};
+"
+	  cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${t0} &${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	  
+	  
+	  
+	  
+	  ncouples 1
+	  key "STM generated" value ""
+	end
+
+	operation 303750 "_doentry"
+	  force_body_gen cpp_virtual public explicit_return_type "void"
+	  nparams 1
+	    param inout name "stm" type class_ref 187526 // Choice001
+	  cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} &${)}${const}${volatile}${throw}${abstract};
+"
+	  cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${t0} &${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	  
+	  
+	  
+	  
+	  ncouples 1
+	  key "STM generated" value ""
+	  comment " performs the 'entry activity'"
+	end
+
+	operation 303878 "_doexit"
+	  force_body_gen cpp_virtual public explicit_return_type "void"
+	  nparams 1
+	    param inout name "stm" type class_ref 187526 // Choice001
+	  cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} &${)}${const}${volatile}${throw}${abstract};
+"
+	  cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${t0} &${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	  
+	  
+	  
+	  
+	  ncouples 1
+	  key "STM generated" value ""
+	  comment " performs the 'exit activity'"
+	end
+      end
+
+      class 187782 "Choice001_State"
+	visibility protected 
+	cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+	java_decl ""
+	php_decl ""
+	python_2_2 python_decl ""
+	idl_decl ""
+	explicit_switch_type ""
+	mysql_decl ""
+	
+	ncouples 1
+	key "STM generated" value ""
+	comment " implement the state Choice001"
+	class 187910 "wait_State"
+	  visibility public 
+	  cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+	  java_decl ""
+	  php_decl ""
+	  python_2_2 python_decl ""
+	  idl_decl ""
+	  explicit_switch_type ""
+	  mysql_decl ""
+	  
+	  ncouples 1
+	  key "STM generated" value ""
+	  comment " implement the state wait"
+	  operation 302086 "~wait_State"
+	    force_body_gen cpp_virtual public explicit_return_type ""
+	    nparams 0
+	    cpp_decl "    ${comment}${inline}${virtual}${typeprefix}${name}${(}${)}${volatile}${throw};
+"
+	    cpp_def "${comment}${inline}${typeprefix}${class}::${name}${(}${)}${volatile}${throw} {
+  ${body}}
+"
+	    
+	    
+	    
+	    
+	    ncouples 1
+	    key "STM generated" value ""
+	  end
+
+	  classrelation 197382 // <generalisation>
+	    relation 197382 ---|>
+	      a public
+		cpp default "${type}"
+		classrelation_ref 197382 // <generalisation>
+	      b parent class_ref 187654 // AnyState
+	  end
+
+	  operation 302470 "_completion"
+	    force_body_gen cpp_virtual public explicit_return_type "bool"
+	    nparams 1
+	      param inout name "stm" type class_ref 187526 // Choice001
+	    cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} & ${p0}${)}${const}${volatile}${throw}${abstract};
+"
+	    cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${t0} & ${p0}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	    
+	    
+	    
+	    
+	    ncouples 1
+	    key "STM generated" value ""
+	  end
+
+	  operation 302854 "create"
+	    force_body_gen cpp_virtual public explicit_return_type "void"
+	    nparams 1
+	      param inout name "stm" type class_ref 187526 // Choice001
+	    cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} & ${p0}${)}${const}${volatile}${throw}${abstract};
+"
+	    cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${t0} & ${p0}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	    
+	    
+	    
+	    
+	    ncouples 1
+	    key "STM generated" value ""
+	    comment " to manage the event create"
+	  end
+
+	  operation 302982 "_upper"
+	    force_body_gen cpp_virtual public return_type class_ref 187654 // AnyState
+	    nparams 1
+	      param inout name "stm" type class_ref 187526 // Choice001
+	    cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} * ${name}${(}${t0} & ${p0}${)}${const}${volatile}${throw}${abstract};
+"
+	    cpp_def "${comment}${inline}${typeprefix}${type} * ${class}::${name}${(}${t0} & ${p0}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	    
+	    
+	    
+	    
+	    ncouples 1
+	    key "STM generated" value ""
+	    comment " returns the state containing the current"
+	  end
+	end
+
+	operation 301958 "~Choice001_State"
+	  force_body_gen cpp_virtual public explicit_return_type ""
+	  nparams 0
+	  cpp_decl "    ${comment}${inline}${virtual}${typeprefix}${name}${(}${)}${volatile}${throw};
+"
+	  cpp_def "${comment}${inline}${typeprefix}${class}::${name}${(}${)}${volatile}${throw} {
+  ${body}}
+"
+	  
+	  
+	  
+	  
+	  ncouples 1
+	  key "STM generated" value ""
+	end
+
+	attribute 183430 "_wait_state"
+	  public type class_ref 187910 // wait_State
+	  cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	  java_decl ""
+	  php_decl ""
+	  python_decl ""
+	  idl_decl ""
+	  mysql_decl ""
+	  MysqlColumn
+	  ncouples 1
+	  key "STM generated" value ""
+	  comment " memorize the instance of the state wait, internal"
+	end
+
+	classrelation 197254 // <generalisation>
+	  relation 197254 ---|>
+	    a public
+	      cpp default "${type}"
+	      classrelation_ref 197254 // <generalisation>
+	    b parent class_ref 187654 // AnyState
+	end
+
+	operation 303110 "create"
+	  force_body_gen cpp_virtual public explicit_return_type "void"
+	  nparams 1
+	    param inout name "stm" type class_ref 187526 // Choice001
+	  cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} & ${p0}${)}${const}${volatile}${throw}${abstract};
+"
+	  cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${t0} & ${p0}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	  
+	  
+	  
+	  
+	  ncouples 1
+	  key "STM generated" value ""
+	  comment " to manage the event create"
+	end
+
+	operation 303238 "_upper"
+	  force_body_gen cpp_virtual public return_type class_ref 187654 // AnyState
+	  nparams 1
+	    param inout name "stm" type class_ref 187526 // Choice001
+	  cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} * ${name}${(}${t0} &${)}${const}${volatile}${throw}${abstract};
+"
+	  cpp_def "${comment}${inline}${typeprefix}${type} * ${class}::${name}${(}${t0} &${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	  
+	  
+	  
+	  
+	  ncouples 1
+	  key "STM generated" value ""
+	  comment " returns the state containing the current"
+	end
+      end
+
+      attribute 183302 "_choice001_state"
+	protected type class_ref 187782 // Choice001_State
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+	ncouples 1
+	key "STM generated" value ""
+	comment " memorize the instance of the state Choice001, internal"
+      end
+
+      operation 302214 "Choice001"
+	force_body_gen public explicit_return_type ""
+	nparams 0
+	cpp_decl "    ${comment}${inline}${typeprefix}${name}${(}${)}${volatile}${throw};
+"
+	cpp_def "${comment}${inline}${typeprefix}${class}::${name}${(}${)}${volatile}${throw} {
+  ${body}}
+"
+	
+	
+	
+	
+	ncouples 1
+	key "STM generated" value ""
+      end
+
+      operation 302342 "~Choice001"
+	force_body_gen cpp_virtual public explicit_return_type ""
+	nparams 0
+	cpp_decl "    ${comment}${inline}${virtual}${typeprefix}${name}${(}${)}${volatile}${throw};
+"
+	cpp_def "${comment}${inline}${typeprefix}${class}::${name}${(}${)}${volatile}${throw} {
+  ${body}}
+"
+	
+	
+	
+	
+	ncouples 1
+	key "STM generated" value ""
+      end
+
+      operation 302598 "create"
+	force_body_gen public explicit_return_type "bool"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+	ncouples 1
+	key "STM generated" value ""
+	comment " the operation you call to signal the event create"
+      end
+
+      classrelation 197510 // <dependency>
+	relation 197510 -_->
+	  stereotype "friend"
+	  a public
+	    cpp default "#include in source"
+	    classrelation_ref 197510 // <dependency>
+	  b parent class_ref 187910 // wait_State
+      end
+
+      classrelation 197638 // <dependency>
+	relation 197638 -_->
+	  stereotype "friend"
+	  a public
+	    cpp default "#include in source"
+	    classrelation_ref 197638 // <dependency>
+	  b parent class_ref 187782 // Choice001_State
+      end
+
+      operation 303366 "doActivity"
+	force_body_gen public explicit_return_type "void"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+	ncouples 1
+	key "STM generated" value ""
+	comment " to execute the current state 'do activity'"
+      end
+
+      operation 303494 "_set_currentState"
+	force_body_gen cpp_inline protected explicit_return_type "void"
+	nparams 1
+	  param inout name "st" type class_ref 187654 // AnyState
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${t0} & ${p0}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${t0} & ${p0}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+	ncouples 1
+	key "STM generated" value ""
+	comment " change the current state, internal"
+      end
+
+      operation 303622 "_final"
+	force_body_gen protected explicit_return_type "void"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${typeprefix}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${typeprefix}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+	ncouples 1
+	key "STM generated" value ""
+	comment " execution done, internal"
+      end
+
+      classrelation 197766 // _current_state (<directional aggregation>)
+	relation 197766 o-->
+	  a role_name "_current_state" protected
+	    comment " contains the current state, internal"
+	    cpp default "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} * ${name}${value};
+"
+	    classrelation_ref 197766 // _current_state (<directional aggregation>)
+	  b parent class_ref 187654 // AnyState
+      end
+
+      classrelation 197894 // <generalisation>
+	relation 197894 ---|>
+	  a public
+	    cpp default "${type}"
+	    classrelation_ref 197894 // <generalisation>
+	  b parent class_ref 129158 // Tracer
+      end
+
+      attribute 183558 "condition1"
+	private explicit_type "bool"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 183686 "condition2"
+	private explicit_type "bool"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      attribute 183814 "_machine_name"
+	public explicit_type "string"
+	cpp_decl "    ${comment}${static}${thread_local}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+	ncouples 1
+	key "STM generated" value ""
+	comment " a (unique) name of the machine "
+      end
+    end
+  end
+
   classview 134790 "PSSM-Exiting 001"
     
     classdiagramsettings member_max_width 0 end
@@ -1360,6 +1954,7 @@ ${inlines}
       state 135942 "Wating"
 	transition 136198 "T2"
 	  on state_ref 136070 // S1
+	    uml_trigger "Start"
 	    cpp_trigger "Start"
 	  external 
 	end
@@ -13739,6 +14334,7 @@ ${inlines}
 	artifact_ref 155526 // tst_pssm_transition011B
 	artifact_ref 162054 // tst_pssm_transition011C
 	artifact_ref 162182 // tst_pssm_transition011E
+	artifact_ref 168710 // tst_uml_choice001
       end
       ncouples 10
       key "genpro pro" value "/tmp/generator_testing/generator_testing.pro"
@@ -13824,6 +14420,39 @@ ${members}
 ${namespace_end}"
       associated_elems
 	class_ref 128006 // CompoundTransitionExample
+      end
+    end
+
+    artifact 168710 "tst_uml_choice001"
+      stereotype "source"
+      cpp_h "#ifndef ${NAMESPACE}_${NAME}_H
+#define ${NAMESPACE}_${NAME}_H
+
+${comment}
+${includes}
+${declarations}
+${namespace_start}
+${definition}
+${namespace_end}
+
+using namespace testing;
+
+TEST(UML, Choice001)
+{
+    Choice001 sut;
+    sut.create();
+    EXPECT_EQ(std::string{\"T3(effect)::T5(effect)::T6(effect)\"}, sut.trace());
+}
+
+#endif
+"
+      cpp_src "${comment}
+${includes}
+${namespace_start}
+${members}
+${namespace_end}"
+      associated_elems
+	class_ref 187526 // Choice001
       end
     end
 

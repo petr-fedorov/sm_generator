@@ -1,0 +1,17 @@
+class Choice001
+!!!302214.cpp!!!	Choice001()
+  _current_state = 0;
+!!!302598.cpp!!!	create() : bool
+if (_current_state == 0)
+  (_current_state = &(*this)._choice001_state)->create(*this);
+return (_current_state != 0);
+!!!303366.cpp!!!	doActivity() : void
+  _current_state->_do(*this);
+!!!303494.cpp!!!	_set_currentState(inout st : Choice001::AnyState) : void
+  _current_state = &st;
+!!!303622.cpp!!!	_final() : void
+  _current_state = 0;
+Choice001 &stm {*this};
+#ifdef VERBOSE_STATE_MACHINE
+    std::cout <<  stm._machine_name << "DEBUG: final state reached" << std::endl;
+#endif

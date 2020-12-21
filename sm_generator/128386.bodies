@@ -351,7 +351,7 @@ return ("+ _current_state + " != 0);\n";
       final->defaultDef();
       final->setComment("execution done, internal");
       final->setType("void", "${type}");
-      s = "  " + _current_state + " = 0;\n" + machine->name() + " &stm {*this};\n" + verbosity("final state reached");
+      s = "  " + _current_state + " = 0;\n #ifdef VERBOSE_STATE_MACHINE\n" + machine->name() + " & stm =*this;\n #endif\n"+ verbosity("final state reached");
       final->set_CppBody(s);
       if (final->isCppInline())
 	// defined by old release
